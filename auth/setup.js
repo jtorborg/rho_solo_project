@@ -38,20 +38,17 @@ function findAndComparePassword(username, password, done){
     }
 
     // compare the password
-    if (password === user.password) {
-      // matched, woohoo!
-      console.log('Passwords matched! Success!');
-      return done(null, user);
-    }
-
-    // didn't match, not a successful login
-    done(null, false);
+    user.comparePassword(password).then(function(isMatch){
+      // indicate whether or not it matched
+      if (isMatch) {
+        done(null, user);
+      } else {
+        done(null, false);
+      }
+    });
 
   }).catch(function(err){
     console.log('Error finding user', err);
     done(err);
   });
-
-
-  // indicate whether or not it matched
 }
