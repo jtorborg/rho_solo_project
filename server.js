@@ -4,13 +4,17 @@ const connection = require('./db/connection');
 const path = require('path');
 const login = require('./routes/login');
 const register = require('./routes/register');
+const auth = require('./auth/setup');
+const passport = require('passport');
 
 connection.connect();
+auth.setup();
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use(express.static('public'));
+app.use(passport.initialize());
 
 app.use('/login', login);
 app.use('/register', register);
