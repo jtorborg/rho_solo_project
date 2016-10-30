@@ -15,7 +15,7 @@ function findByUsername(username) {
         pool.connect(function(err, client, done) {
             if (err) {
                 done();
-                reject(err);
+                return reject(err);
             }
             client.query('SELECT * FROM users WHERE username=$1', [username],
                 function(err, result) {
@@ -34,11 +34,11 @@ function findById(id) {
         pool.connect(function(err, client, done) {
             if (err) {
                 done();
-                reject(err);
+                return reject(err);
             }
             client.query('SELECT * FROM users WHERE id=$1', [id],
                 function(err, result) {
-                    //done();
+                    done();
                     if (err) {
                         reject(err);
                     }
@@ -50,7 +50,7 @@ function findById(id) {
 //create
 function create(username, password) {
     return new Promise(function(resolve, reject) {//db stuff should be inside callback function
-        bcrypt.hash(user.password, SALT_ROUNDS, function(err, hash) {
+        bcrypt.hash(password, SALT_ROUNDS, function(err, hash) {
             if (err) {
                 console.log('Error hashing password', err);
                 return reject(err);
@@ -59,13 +59,13 @@ function create(username, password) {
     pool.connect(function(err, client, done) {
         if (err) {
             done();
-            reject(err);
+            return reject(err);
         }
         client.query('INSERT INTO users (username, password) VALUES ($1, $2) RETURNING *', [username, hash],
             function(err, result) {
                 done();
                 if (err) {
-                    reject(err);
+                    return reject(err);
                 }
                 resolve(result.rows[0]);
             });
