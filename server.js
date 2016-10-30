@@ -1,12 +1,17 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const connection = require('./db/connection');
+//const connection = require('./db/connection');
 const path = require('path');
 const login = require('./routes/login');
 const register = require('./routes/register');
 const auth = require('./auth/setup');
 const passport = require('passport');
 const session = require('express-session');
+
+//const user = require('./models/user');
+
+auth.setup();
+
 
 const sessionConfig = {
   secret: 'super secret key goes here', // TODO this should be read from ENV
@@ -19,8 +24,7 @@ const sessionConfig = {
   }
 };
 
-connection.connect();
-auth.setup();
+// connection.connect();
 
 const app = express();
 

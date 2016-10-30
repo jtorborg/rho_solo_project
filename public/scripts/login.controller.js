@@ -11,6 +11,7 @@ function LoginController($http, $location) {
       username: ctrl.username,
       password: ctrl.password
     }).then(function(response){
+      $location.path('/home')
       console.log(response);
     }, function(error) {
       console.log('error loggin in', error);
