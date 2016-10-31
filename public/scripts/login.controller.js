@@ -1,4 +1,4 @@
-angular.module('passportApp')
+angular.module('speechApp')
 .controller('LoginController', LoginController);
 
 function LoginController($http, $location) {

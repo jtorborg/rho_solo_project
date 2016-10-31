@@ -1,4 +1,4 @@
-angular.module('passportApp')
+angular.module('speechApp')
 .controller('RegisterController', RegisterController);
 
 function RegisterController($http, $location) {
