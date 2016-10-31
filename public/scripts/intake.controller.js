@@ -6,7 +6,7 @@ function IntakeController($location) {
   var ctrl = this;
 
   ctrl.intake = {
-    console.log('inside ctrl intake function');
+    name: name
   }
 //CRUD requests to /intake
 }

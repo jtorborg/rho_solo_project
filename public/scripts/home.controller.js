@@ -6,7 +6,7 @@ function HomeController($http, $location) {
   var ctrl = this;
 
   ctrl.home = {
-    console.log('inside ctrl home function');
+    name: name
   }
 
 }

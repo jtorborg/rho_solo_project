@@ -6,7 +6,7 @@ function LibraryController($http, $location) {
 var ctrl = this;
 
 ctrl.library = {
-  console.log('inside ctrl library function');
+  name: name
 }
-//get request to /library 
+//get request to /library
 }
