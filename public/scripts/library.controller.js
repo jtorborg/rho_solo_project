@@ -1,12 +1,27 @@
 angular.module('speechApp')
 .controller('LibraryController', LibraryController);
 
-function LibraryController($http, $location) {
+function LibraryController(libraryService) {
   console.log('LibraryController loaded');
-var ctrl = this;
-
-ctrl.library = {
-  name: name
-}
+var library = this;
+library.Object = {};
+ library.Array = [];
+// ctrl.library = {
+//   name: name
+// }
 //get request to /library
+
+this.getLibrary = function() {
+    console.log('inside getLibrary');
+
+    libraryService.getLibrary().then(function(response) {
+        console.log("response", response);;
+
+        library.Object = response;
+        library.Array = response.data;
+        console.log("library array", library.Array);
+    });
+
+}
+
 }

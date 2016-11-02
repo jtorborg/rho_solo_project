@@ -63,18 +63,19 @@
     <label for="primarylanguage" class="control-label col-xs-offset-1 col-xs-3" ng-model="intake.primarylanguage">Primary Language:</label>
     <div class="col-xs-4">
 
-    <select class="form-control" style="width: auto;" ng-value="intake.selected">
+    <select class="form-control" name = "primarylanguage" style="width: auto;" ng-model="intake.primarylanguage">
       {{intake.primarylanguage}}
-    <option value="" disabled selected >Select your option</option>
+
+    <option value="" selected="selected" >Select a language</option>
     <option value="English">English</option>
     <option value="Spanish">Spanish</option>
-{{intake.primarylagnuage}}
+{{intake.primarylanguage}}
   </select>
     </div>
 </div>
 
 
-<!-- <div class="form-group">
+<div class="form-group">
     <label for="insurance" class ="control-label col-xs-offset-1 col-xs-3">Area(s) of Concern</label>
     <div class="col-xs-8">
     <input type="checkbox" name="primarylanguage" value="primarylanguage" ng-model="intake.primarylanguage"><p>Language</p>
@@ -83,7 +84,7 @@
     <input type="checkbox" name="fluency" value="fluency" ng-model="intake.fluency"><p>Fluency</p>
     <input type="checkbox" name="voice" value="voice" ng-model="intake.voice"><p>Voice</p>
 
-</div> -->
+</div>
 </div>
 
 
@@ -123,6 +124,6 @@
     </div>
     <div class="col-xs-offset-3 col-xs-10">
 
-    <button id="intakesubmit" class="btn btn-default  col-xs-offset-1 " ng-click="intake.postStudent(intake.firstname, intake.lastname, intake.age, intake.dob, intake.insurance, intake.medical, intake.appointment, intake.primarylanguage)">Submit</button>
+    <button id="intakesubmit" class="btn btn-default  col-xs-offset-1 " ng-click="intake.postStudent(intake.firstname, intake.lastname, intake.age, intake.dob, intake.insurance, intake.medical, intake.appointment, intake.primarylanguage)"; "intake.postConcerns()">Submit</button>
   </div>
 </form>

@@ -11,11 +11,12 @@ function IntakeController(intakeService) {
 
     this.postStudent = function(firstname, lastname, age, dob, insurance, medical, appointment, primarylanguage) {
         console.log('inside postStudent');
+        intake.dob = new Date;
         intake.studentdata = {
             firstname: firstname,
             lastname: lastname,
             age: age,
-            dob: dob,
+            dob: dob.toDateString(),
             insurance: insurance,
             medical: medical,
             appointment: appointment,
@@ -26,4 +27,13 @@ function IntakeController(intakeService) {
             console.log("response", response);
         });
     }; //end of postStudent
+
+
+    this.postConcerns = function() {
+        console.log('inside postConcerns');
+
+
+    }; //end of postConcerns
+
+
 }

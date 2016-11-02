@@ -30,6 +30,7 @@ router.post('/', function(req, res) {
 
         } //end of if statement
         console.log("req body", req.body);
+
         client.query('INSERT INTO students (firstname, lastname, dob, age, insurance, medical, appointment, primarylanguage) VALUES($1, $2, $3, $4, $5, $6, $7, $8) returning *', [req.body.firstname, req.body.lastname, req.body.dob, req.body.age, req.body.insurance, req.body.medical, req.body.appointment, req.body.primarylanguage], function(err, result) {
             done();
             if (err) {
