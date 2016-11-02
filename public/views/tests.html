@@ -9,6 +9,8 @@
         <div class="col-xs-2">
 
             <input type="number" id="age" name="age" class="form-control" size="3" min="0" max="99" ng-model="intake.age" />
+
+{{intake.age}}
         </div>
     </div>
 
@@ -35,10 +37,19 @@
         <label for="insurance" class ="control-label col-xs-offset-1 col-xs-3">Area(s) of Concern:</label>
         <div class="col-xs-8">
         <input type="checkbox" name="language" value="language" ng-model="tests.language"><p>Language</p>
+{{tests.language}}
         <input type="checkbox" name="articulation" value="articulation" ng-model="tests.articulation"><p>Articulation</p>
+        {{tests.articulation}}
+
         <input type="checkbox" name="pragmatics" value="pragmatics" ng-model="tests.pragmatics"><p>Pragmatics</p>
+        {{tests.pragmatics}}
+
         <input type="checkbox" name="fluency" value="fluency" ng-model="tests.fluency"><p>Fluency</p>
+        {{tests.fluency}}
+
         <input type="checkbox" name="voice" value="voice" ng-model="tests.voice"><p>Voice</p>
+        {{tests.voice}}
+
     </div>
     </div>
 
@@ -50,7 +61,7 @@
         <option value="" disabled selected>Select your option</option>
         <option value="English">English</option>
         <option value="Spanish">Spanish</option>
-
+{{test.language}}
       </select>
         </div>
     </div>
