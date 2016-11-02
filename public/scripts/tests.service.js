@@ -4,14 +4,14 @@ var ctrl = this;
 
 function testsService($http) {
   console.log('inside tests service');
-  this.getTests = function() {
-       return $http.get('/tests')
+  this.getTests = function(age, primarylanguage) {
+       return $http.get('/tests?age=' + age +'&primarylanguage=' + primarylanguage)
            .then(function(tests) {
              console.log('tests', tests);
                return tests;  //!!!!!!!!!!
            });
 
-           
+
 
 } //end of getTests
 //testsService

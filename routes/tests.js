@@ -19,7 +19,7 @@ console.log('inside intake.js');
 
 
 router.get('/', function(req, res) {
-
+console.log("req.query", req.query);
     pool.connect(function(err, client, done) {
 
         if (err) {
@@ -29,7 +29,7 @@ router.get('/', function(req, res) {
             return;
 
         } //end of if statement
-        client.query('SELECT * FROM tests', function(err, result) {
+        client.query('SELECT * FROM tests WHERE lowerage <= $1 AND upperage >= $1 AND primarylanguage = $2', [req.query.age, req.query.primarylanguage], function(err, result) {
             done();
             if (err) {
                 console.log('err', err);

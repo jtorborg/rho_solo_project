@@ -12,13 +12,13 @@ function intakeService($http) {//pass in built-in $http; this is a privately sco
 
 } //end of postStudent
 
-// this.postConcerns = function(concerns) {//pass your data!!!
-// //send post to route; route will send to database
-//      return $http.post('/intake', concerns)
-//          .then(function(concerns) {
-//              return concerns;  //!!!!!!!!!!
-//          });
-//
-// } //end of postConcerns
+this.postConcerns = function(concerns) {//pass your data!!!
+  console.log('concerns in service', concerns);
+      return $http.post('/intake', concerns)
+          .then(function(concerns) {
+              return concerns;  //!!!!!!!!!!
+          });
+
+ } //end of postConcerns
 
 }//end of intakeService

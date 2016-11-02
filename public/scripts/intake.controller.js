@@ -29,10 +29,21 @@ function IntakeController(intakeService) {
     }; //end of postStudent
 
 
-    this.postConcerns = function() {
+    this.postConcerns = function(firstname, age, language, articulation, pragmatics, fluency, voice) {
         console.log('inside postConcerns');
-
-
+        intake.studentconcerns = {
+            firstname: firstname,
+            age: age,
+            language: language,
+            articulation: articulation,
+            pragmatics: pragmatics,
+            fluency: fluency,
+            voice: voice
+        };
+console.log("intake student concerns", intake.studentconcerns);
+intakeService.postConcerns(intake.studentconcerns).then(function(response) {
+    console.log("response from post concerns", response);
+});
     }; //end of postConcerns
 
 

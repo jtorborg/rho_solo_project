@@ -12,7 +12,7 @@ dob date,
 age integer NOT NULL,
 insurance BOOLEAN,
 medical BOOLEAN,
-appointment BOOLEAN.
+appointment BOOLEAN,
 primarylanguage varchar(50)
 );
 

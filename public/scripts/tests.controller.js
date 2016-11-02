@@ -10,8 +10,10 @@ function TestsController(testsService) {
   this.getTests = function() {
       console.log('inside getTests');
 
-      testsService.getTests().then(function(response) {
+      testsService.getTests(tests.age, tests.primarylanguage).then(function(response) {
         console.log("response", response);;
+console.log(tests.age);
+console.log(tests.primarylanguage);
 
         tests.Object = response;
         tests.Array = response.data;
