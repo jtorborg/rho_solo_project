@@ -41,9 +41,38 @@ router.get('/', function(req, res) {
         }); //end of client query
     }); //end pool connect
 
-}); //end of router post
+}); //end of router get
 
+router.put('/:id', function(req, res) {
+  console.log('req body', req.body);
+  var testid = req.params.id;
+console.log("testid", testid);
 
+  pool.connect(function(err, client, done){
+    try {
+      if (err) {
+        console.log('Error connecting the DB', err);
+        res.sendStatus(500);
+        return;
+      }
+
+      client.query('UPDATE tests SET available=false WHERE id=$1 RETURNING *;',
+      [testid],
+
+      function(err, result) {
+        if (err) {
+          console.log('Error querying database', err);
+          res.sendStatus(500);
+        } else {
+          console.log('result rows', result.rows);
+          res.send(result.rows);//!!!@@@send back to client side
+        }
+      });
+    } finally {
+      done();
+    }
+  });
+});//end of put function
 
 
 //~~~~~~~~~~~
