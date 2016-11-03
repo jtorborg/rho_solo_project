@@ -29,7 +29,7 @@ console.log("req.query", req.query);
             return;
 
         } //end of if statement
-        client.query('SELECT * FROM tests WHERE lowerage <= $1 AND upperage >= $1 AND primarylanguage = $2', [req.query.age, req.query.primarylanguage], function(err, result) {
+        client.query('SELECT * FROM tests_concerns JOIN tests on tests_concerns.tests_id = tests.id JOIN concerns on tests_concerns.concerns_id = concerns.id WHERE lowerage <= $1 AND upperage >= $1 AND primarylanguage = $2 AND concern = $3', [req.query.age, req.query.primarylanguage, req.query.concern], function(err, result) {
             done();
             if (err) {
                 console.log('err', err);

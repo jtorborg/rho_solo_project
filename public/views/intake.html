@@ -38,7 +38,6 @@
     <!-- <div class="form-group row">
         <label for="concern" class ="control-label col-xs-offset-1 col-xs-3">Area of Concern:</label>
         <div class="col-xs-4">
-
         <select class="form-control" style = "width: auto;" ng-model="intake.concern">
         <option value="" disabled selected>Select your option</option>
         <option value="Language">Language</option>
@@ -46,9 +45,6 @@
         <option value="Pragmatics">Pragmatics</option>
         <option value="Fluency">Fluency</option>
         <option value="Voice">Voice</option>
-
-
-
       </select>
     </div>
 </div> -->
@@ -71,27 +67,43 @@
 
 
     <div class="form-group">
-        <label for="insurance" class="control-label col-xs-offset-1 col-xs-3">Area(s) of Concern</label>
-        <div class="col-xs-8">
+        <label for="insurance" class="control-label col-xs-offset-1 col-xs-3">Area of Concern</label>
 
-            <input type="checkbox" name="primarylanguage" value="primarylanguage" ng-model="intake.language"> {{intake.language}} <p>Language</p>
+        <select class="form-control" name = "concern" style="width: auto;" ng-model="intake.concerns_id">
+
+        <option value="" selected="selected" >Select a concern</option>
+        <option value="1">Language</option>
+
+        <option value="2">Articulation</option>
+
+        <option value="3">Pragmatics</option>
+
+        <option value="4">Fluency</option>
+
+        <option value="5">Voice</option>
 
 
-            <input type="checkbox" name="articulation" value="articulation" ng-model="intake.articulation"> {{intake.articulation}} <p>Articulation</p>
+      </select>{{intake.concerns_id}}
+        <!-- <div class="col-xs-8">
+
+            <input type="checkbox" name="primarylanguage" value="primarylanguage" ng-model="intake.language" ng-true-value="1"> {{intake.language}} <p>Language</p>
 
 
-            <input type="checkbox" name="pragmatics" value="pragmatics" ng-model="intake.pragmatics"> {{intake.pragmatics}} <p>Pragmatics</p>
+            <input type="checkbox" name="articulation" value="articulation" ng-model="intake.articulation" ng-true-value="2"> {{intake.articulation}} <p>Articulation</p>
+
+
+            <input type="checkbox" name="pragmatics" value="pragmatics" ng-model="intake.pragmatics" ng-true-value="3"> {{intake.pragmatics}} <p>Pragmatics</p>
 
             </p>
 
 
-            <input type="checkbox" name="fluency" value="fluency" ng-model="intake.fluency"> {{intake.fluency}} <p>Fluency
+            <input type="checkbox" name="fluency" value="fluency" ng-model="intake.fluency" ng-true-value="4"> {{intake.fluency}} <p>Fluency
 
             </p>
 
-            <input type="checkbox" name="voice" value="voice" ng-model="intake.voice"> {{intake.voice}} <p>
+            <input type="checkbox" name="voice" value="voice" ng-model="intake.voice" ng-true-value="5"> {{intake.voice}} <p>
               Voice
-            </p>
+            </p> -->
         </div>
     </div>
 
@@ -122,12 +134,12 @@
         <label for="appt" class="control-label col-xs-offset-1 col-xs-3">Appointment Scheduled?</label>
         <div class="col-xs-8">
 
-            <input type="checkbox" name="appt" value="appt" ng-model="intake.appointment"> {{intake.appointment}}
+            <input type="checkbox" name="appt" value="appt" ng-model="intake.appointment" > {{intake.appointment}}
         </div>
 
     </div>
     <div class="col-xs-offset-3 col-xs-10">
 
-        <button id="intakesubmit" class="btn btn-default  col-xs-offset-1 " ng-click="intake.postConcerns(intake.firstname, intake.age, intake.language, intake.articulation, intake.pragmatics, intake.fluency, intake.voice);intake.postStudent(intake.firstname, intake.lastname, intake.age, intake.dob, intake.insurance, intake.medical, intake.appointment, intake.primarylanguage)">Submit</button>
+        <button id="intakesubmit" class="btn btn-default  col-xs-offset-1 " ng-click="intake.postStudent(intake.firstname, intake.lastname, intake.age, intake.dob, intake.insurance, intake.medical, intake.appointment, intake.primarylanguage, intake.concerns_id)">Submit</button>
     </div>
 </form>

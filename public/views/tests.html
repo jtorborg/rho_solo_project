@@ -11,7 +11,7 @@
         </div>
     </div>
 
-    <div class="form-group">
+    <!-- <div class="form-group">
         <label for="insurance" class ="control-label col-xs-offset-1 col-xs-3">Area(s) of Concern:</label>
         <div class="col-xs-8">
         <input type="checkbox" name="language" value="language" ng-model="tests.language"><p>Language</p>
@@ -29,7 +29,24 @@
         {{tests.voice}}
 
     </div>
-    </div>
+    </div> -->
+
+
+    <div class="form-group row">
+        <label for="language" class="control-label col-xs-offset-1 col-xs-3">Area of Concern:</label>
+        <div class="col-xs-4">
+
+          <select class="form-control" name = "concern" style="width: auto;" ng-model="tests.concern">
+
+          <option value="" selected="selected" >Select a concern</option>
+          <option value="Language">Language</option>
+          <option value="Articulation">Articulation</option>
+          <option value="Pragmatics">Pragmatics</option>
+          <option value="Fluency">Fluency</option>
+          <option value="Voice">Voice</option>
+          {{tests.concern}}
+
+        </select>
 
     <div class="form-group row">
         <label for="language" class="control-label col-xs-offset-1 col-xs-3">Language:</label>

@@ -3,24 +3,23 @@ angular.module('speechApp')
 
 function IntakeController(intakeService) {
     console.log('IntakeController loaded');
+
     var intake = this;
 
-    intake.object = {};
-    intake.array = [];
-    intake.studentdata = {};
 
-    this.postStudent = function(firstname, lastname, age, dob, insurance, medical, appointment, primarylanguage) {
+    this.postStudent = function(firstname, lastname, age, dob, insurance, medical, appointment, primarylanguage, concerns_id) {
         console.log('inside postStudent');
         intake.dob = new Date;
         intake.studentdata = {
             firstname: firstname,
             lastname: lastname,
             age: age,
-            dob: dob.toDateString(),
+            dob: dob,
             insurance: insurance,
             medical: medical,
             appointment: appointment,
-            primarylanguage: primarylanguage
+            primarylanguage: primarylanguage,
+            concerns_id: concerns_id
         };
         console.log(intake.studentdata);
         intakeService.postStudent(intake.studentdata).then(function(response) {
@@ -29,22 +28,24 @@ function IntakeController(intakeService) {
     }; //end of postStudent
 
 
-    this.postConcerns = function(firstname, age, language, articulation, pragmatics, fluency, voice) {
-        console.log('inside postConcerns');
-        intake.studentconcerns = {
-            firstname: firstname,
-            age: age,
-            language: language,
-            articulation: articulation,
-            pragmatics: pragmatics,
-            fluency: fluency,
-            voice: voice
-        };
-console.log("intake student concerns", intake.studentconcerns);
-intakeService.postConcerns(intake.studentconcerns).then(function(response) {
-    console.log("response from post concerns", response);
-});
-    }; //end of postConcerns
+//     this.postConcerns = function(firstname, age, language, articulation, pragmatics, fluency, voice) {
+//         console.log('inside postConcerns');
+//         intake.studentconcerns = {
+//
+//             firstname: firstname,
+//             age: age,
+//             students_id: students_id,
+//             concerns_id: concerns_id
+//         };
+// console.log("intake student concerns", intake.studentconcerns);
+// intakeService.postConcerns(intake.studentconcerns).then(function(response) {
+//     console.log("response from post concerns", response);
+// });
+//     }; //end of postConcerns
+
+
+
+
 
 
 }

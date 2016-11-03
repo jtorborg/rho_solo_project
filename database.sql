@@ -168,3 +168,7 @@ SELECT * FROM students
 JOIN students_concerns ON
 students_concerns.students_id = students.id
 WHERE concerns_id = 5;
+
+SELECT * FROM tests_concerns
+JOIN tests on tests_concerns.tests_id = tests.id
+JOIN concerns on tests_concerns.concerns_id = concerns.id
