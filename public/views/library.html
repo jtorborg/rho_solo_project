@@ -12,8 +12,9 @@
 
   {{lib.name}}
   {{lib.language}}
-
-  <button ng-click="library.checkoutTest(lib.id)" class="btn btn-default  col-xs-offset-1" >Check Out {{lib.available}}</button>
+{{lib.available}}
+  <button ng-click="library.checkoutTest(lib.id)" class="btn btn-default  col-xs-offset-1" >Check Out </button>
+  <!-- <button ng-click="library.checkinTest(lib.id)" class="btn btn-default  col-xs-offset-1" >Check In </button> -->
 
 </p>
 </div>

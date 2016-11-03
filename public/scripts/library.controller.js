@@ -11,7 +11,7 @@ function LibraryController(libraryService) {
     // }
     //get request to /library
 
-    this.getLibrary = function() {
+    library.getLibrary = function() {
         console.log('inside getLibrary');
 
         libraryService.getLibrary().then(function(response) {
@@ -24,18 +24,19 @@ function LibraryController(libraryService) {
 
     }
 
-    this.checkoutTest = function(libraryid) {
+    library.checkoutTest = function(libraryid) {
         console.log('change availability');
-console.log("libraryid", libraryid);
+        console.log("libraryid", libraryid);
 
-// console.log("available", available);
+        // console.log("available", available);
         // library.testStatus = {
         //     id: id
         // };
-console.log('library id', libraryid);
+        console.log('library id', libraryid);
         libraryService.checkoutTest(libraryid).then(function(response) {
-            console.log("response", response);
 
+          library.getLibrary();
+            console.log("response", response);
         });
 
     }
