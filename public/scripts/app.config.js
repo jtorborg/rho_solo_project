@@ -24,6 +24,6 @@ angular.module('speechApp').config(function($routeProvider, $locationProvider) {
     templateUrl: 'views/tests.html',
     controller: 'TestsController as tests'
   }).otherwise({
-    redirectTo: "/login"
+    redirectTo: "/calendar"
   });
 });

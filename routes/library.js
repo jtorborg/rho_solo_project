@@ -49,6 +49,8 @@ router.put('/:id', function(req, res) {
   var testid = req.params.id;
 console.log("testid", testid);
 
+
+
   pool.connect(function(err, client, done){
     try {
       if (err) {
@@ -61,8 +63,8 @@ console.log("testid", testid);
        } else {
          req.body.libraryavail = true;
        }
-      client.query('UPDATE tests SET available=$2 WHERE id=$1 RETURNING *;',
-      [testid, req.body.libraryavail],
+      client.query('UPDATE tests SET available=$2, comments=$3 WHERE id=$1 RETURNING *;',
+      [testid, req.body.libraryavail, req.body.librarycomments],
 
       function(err, result) {
         if (err) {

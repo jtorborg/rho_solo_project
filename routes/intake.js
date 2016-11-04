@@ -13,7 +13,6 @@ var config = {
 var pool = new pg.Pool(config);
 
 
-console.log('inside intake.js');
 
 //~~~~~~~~~~~
 

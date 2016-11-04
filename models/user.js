@@ -1,13 +1,9 @@
-//const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const SALT_ROUNDS = 10;
-//const pg = require('pg');
 const pool = require('../db/connection');
+// const auth = require('../db/auth.template');
 
-// const userSchema = new mongoose.Schema({
-//   username: String,
-//   password: String
-// });
+
 
 //find by username
 function findByUsername(username) {
@@ -28,6 +24,28 @@ function findByUsername(username) {
         });
     });
 }
+
+//update user
+function updateUser(id, account) {
+    return new Promise(function(resolve, reject) {
+        pool.connect(function(err, client, done) {
+            if (err) {
+                done();
+                return reject(err);
+            }
+            client.query('UPDATE users SET googletoken=$1, profile_id=$2 WHERE id=$3', [account.token, account.profile, id],
+                function(err, result) {
+                    done();
+                    if (err) {
+                        reject(err);
+                    }
+                    resolve(result.rows[0]);
+                });
+        });
+    });
+}
+
+
 //find by id
 function findById(id) {
     return new Promise(function(resolve, reject) {
@@ -95,5 +113,6 @@ module.exports = {
     findByUsername: findByUsername,
     findById: findById,
     create: create,
-    comparePassword: comparePassword
+    comparePassword: comparePassword,
+    updateUser: updateUser
 };
