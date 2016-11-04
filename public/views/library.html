@@ -6,15 +6,13 @@
     <button id="librarysubmit" class="btn btn-default  col-xs-offset-1 " ng-click="library.getLibrary()">Submit</button>
 </div>
 </form>
-
 <div ng-repeat="lib in library.Array track by $index">
-<p>
-
-  {{lib.name}}
-  {{lib.language}}
-{{lib.available}}
-  <button ng-click="library.checkoutTest(lib.id)" class="btn btn-default  col-xs-offset-1" >Check Out </button>
-  <!-- <button ng-click="library.checkinTest(lib.id)" class="btn btn-default  col-xs-offset-1" >Check In </button> -->
-
-</p>
+    <p>
+        {{lib.name}} {{lib.language}} {{lib.available}}
+        <div class="col-xs-6" ng-show="true">
+            <label for="info">Info:</label>
+            <input type="text" id="info" name="info" class="form-control" placeholder="Please indicate who has this test and how long you will need it" />
+    </p>
+    </div>
+    <button ng-click="library.checkoutTest(lib.id, lib.available)" class="btn btn-default  col-xs-offset-1">Check In/Out</button>
 </div>

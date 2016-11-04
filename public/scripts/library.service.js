@@ -13,11 +13,11 @@ function libraryService($http) {
         //getLibrary();
 
 
-        this.checkoutTest = function(libraryid) {
-          console.log('libraryid', libraryid);
-            return $http.put('/library/' + libraryid).then(function(status) {
+        this.checkoutTest = function(librarytestStatus) {
+          console.log('library.testStatus,libraryid', librarytestStatus);
+            return $http.put('/library/' + librarytestStatus.libraryid, librarytestStatus).then(function(status) {
 
-                return libraryid;
+                return librarytestStatus;
             })
         }
 

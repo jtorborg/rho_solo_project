@@ -29,7 +29,7 @@ router.get('/', function(req, res) {
             return;
 
         } //end of if statement
-        client.query('SELECT * FROM tests', function(err, result) {
+        client.query('SELECT * FROM tests ORDER BY id', function(err, result) {
             done();
             if (err) {
                 console.log('err', err);
@@ -44,6 +44,7 @@ router.get('/', function(req, res) {
 }); //end of router get
 
 router.put('/:id', function(req, res) {
+  console.log('req params', req.params);
   console.log('req body', req.body);
   var testid = req.params.id;
 console.log("testid", testid);
@@ -55,9 +56,13 @@ console.log("testid", testid);
         res.sendStatus(500);
         return;
       }
-
-      client.query('UPDATE tests SET available=false WHERE id=$1 RETURNING *;',
-      [testid],
+      if (req.body.libraryavail === true) {
+         req.body.libraryavail = false;
+       } else {
+         req.body.libraryavail = true;
+       }
+      client.query('UPDATE tests SET available=$2 WHERE id=$1 RETURNING *;',
+      [testid, req.body.libraryavail],
 
       function(err, result) {
         if (err) {

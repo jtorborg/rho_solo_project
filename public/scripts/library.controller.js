@@ -24,16 +24,20 @@ function LibraryController(libraryService) {
 
     }
 
-    library.checkoutTest = function(libraryid) {
+    library.checkoutTest = function(libraryid, libraryavail) {
         console.log('change availability');
         console.log("libraryid", libraryid);
 
-        // console.log("available", available);
-        // library.testStatus = {
-        //     id: id
-        // };
+        library.testStatus = {
+        libraryid: libraryid,
+        libraryavail: libraryavail
+         };
         console.log('library id', libraryid);
-        libraryService.checkoutTest(libraryid).then(function(response) {
+        console.log('library avail', libraryavail);
+        console.log('library test status', library.testStatus);
+
+
+        libraryService.checkoutTest(library.testStatus).then(function(response) {
 
           library.getLibrary();
             console.log("response", response);
