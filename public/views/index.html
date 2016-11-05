@@ -1,47 +1,54 @@
 <!DOCTYPE html>
 <html ng-app="speechApp">
+
 <head>
-  <meta charset="utf-8">
-  <title>Speech Assessment</title>
+    <meta charset="utf-8">
+    <title>Speech Assessment</title>
 
-<link href="https://fonts.googleapis.com/css?family=Coming+Soon" rel="stylesheet">
-  <link rel="stylesheet" href="vendors/bootstrap.min.css" media="screen" title="no title">
-  <link rel="stylesheet" href="css/styles.css" >
+<link href="https://fonts.googleapis.com/css?family=Coming+Soon|Nunito" rel="stylesheet">    <link rel="stylesheet" href="vendors/bootstrap.min.css" media="screen" title="no title">
+    <link rel="stylesheet" href="css/styles.css">
 
-  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 
-  <script src="vendors/angular.min.js" charset="utf-8"></script>
-  <script src="vendors/angular-route.min.js" charset="utf-8"></script>
+    <script src="vendors/angular.min.js" charset="utf-8"></script>
+    <script src="vendors/angular-route.min.js" charset="utf-8"></script>
 
-  <script src="scripts/app.module.js" charset="utf-8"></script>
-  <script src="scripts/login.controller.js" charset="utf-8"></script>
-  <script src="scripts/register.controller.js" charset="utf-8"></script>
-  <script src="scripts/calendar.controller.js" charset="utf-8"></script>
-  <script src="scripts/home.controller.js" charset="utf-8"></script>
-  <script src="scripts/intake.controller.js" charset="utf-8"></script>
-  <script src="scripts/intake.service.js" charset="utf-8"></script>
-  <script src="scripts/library.controller.js" charset="utf-8"></script>
-  <script src="scripts/library.service.js" charset="utf-8"></script>
+    <script src="scripts/app.module.js" charset="utf-8"></script>
+    <script src="scripts/login.controller.js" charset="utf-8"></script>
+    <script src="scripts/register.controller.js" charset="utf-8"></script>
+    <script src="scripts/calendar.controller.js" charset="utf-8"></script>
+    <script src="scripts/home.controller.js" charset="utf-8"></script>
+    <script src="scripts/intake.controller.js" charset="utf-8"></script>
+    <script src="scripts/intake.service.js" charset="utf-8"></script>
+    <script src="scripts/library.controller.js" charset="utf-8"></script>
+    <script src="scripts/library.service.js" charset="utf-8"></script>
 
-  <script src="scripts/tests.controller.js" charset="utf-8"></script>
-  <script src="scripts/tests.service.js" charset="utf-8"></script>
-  <script src="scripts/app.config.js" charset="utf-8"></script>
+    <script src="scripts/tests.controller.js" charset="utf-8"></script>
+    <script src="scripts/tests.service.js" charset="utf-8"></script>
+    <script src="scripts/app.config.js" charset="utf-8"></script>
 
-  <base href="/" />
+    <base href="/" />
 </head>
-<body class="container">
-  <div class = "navbar text-center">
-  <a href="home" class="btn btn-default" role="button">HOME</a>
-  <a href="intake" class="btn btn-default" role="button">INTAKE</a>
-  <a href="tests" class="btn btn-default" role="button">TESTS</a>
-  <a href="library" class="btn btn-default" role="button">LIBRARY</a>
-  <a href="calendar" class="btn btn-default" role="button">CALENDAR</a>
-  <a href="login" class="btn btn-default" role="button">LOGIN</a>
-  <a href="register" class="btn btn-default" role="button">REGISTER</a>
-</div>
-  <ng-view>
 
-<h2>Inside ng-view</h2>
-  </ng-view>
+<body>
+    <div id="clouds" style="height: 65px;">
+        <div class="navbar text-center">
+            <a href="home" class="btn btn-default" role="button">HOME</a>
+            <a href="intake" class="btn btn-default" role="button">INTAKE</a>
+            <a href="tests" class="btn btn-default" role="button">TESTS</a>
+            <a href="library" class="btn btn-default" role="button">LIBRARY</a>
+            <a href="calendar" class="btn btn-default" role="button">CALENDAR</a>
+            <a href="login" class="btn btn-default" role="button">LOGIN</a>
+            <a href="register" class="btn btn-default" role="button">REGISTER</a>
+        </div>
+        <div class="cloud x1"></div>
+        <div class="cloud x4"></div>
+        <div class="cloud x2"></div>
+    </div>
+    <ng-view>
+        <h2>Inside ng-view</h2>
+    </ng-view>
+    <footer style="bottom: 0px; width: 100%; height: 120px;">
+<img src="assets/grassfooter.png"  style="repeat-y" />    </footer>
 </body>
 </html>

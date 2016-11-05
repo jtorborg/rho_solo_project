@@ -4,40 +4,14 @@
     <div class="form-group row">
         <label for="age" class="control-label col-xs-offset-1 col-xs-3">Age:</label>
         <div class="col-xs-2">
-
             <input type="number" id="age" name="age" class="form-control" size="3" min="0" max="99" ng-model="tests.age" />
-
-{{tests.age}}
         </div>
     </div>
-
-    <!-- <div class="form-group">
-        <label for="insurance" class ="control-label col-xs-offset-1 col-xs-3">Area(s) of Concern:</label>
-        <div class="col-xs-8">
-        <input type="checkbox" name="language" value="language" ng-model="tests.language"><p>Language</p>
-{{tests.language}}
-        <input type="checkbox" name="articulation" value="articulation" ng-model="tests.articulation"><p>Articulation</p>
-        {{tests.articulation}}
-
-        <input type="checkbox" name="pragmatics" value="pragmatics" ng-model="tests.pragmatics"><p>Pragmatics</p>
-        {{tests.pragmatics}}
-
-        <input type="checkbox" name="fluency" value="fluency" ng-model="tests.fluency"><p>Fluency</p>
-        {{tests.fluency}}
-
-        <input type="checkbox" name="voice" value="voice" ng-model="tests.voice"><p>Voice</p>
-        {{tests.voice}}
-
-    </div>
-    </div> -->
-
 
     <div class="form-group row">
         <label for="language" class="control-label col-xs-offset-1 col-xs-3">Area of Concern:</label>
         <div class="col-xs-4">
-
-          <select class="form-control" name = "concern" style="width: auto;" ng-model="tests.concern">
-
+            <select class="form-control" name="concern" style="width: auto;" ng-model="tests.concern">
           <option value="" selected="selected" >Select a concern</option>
           <option value="Language">Language</option>
           <option value="Articulation">Articulation</option>
@@ -45,42 +19,48 @@
           <option value="Fluency">Fluency</option>
           <option value="Voice">Voice</option>
           {{tests.concern}}
-
         </select>
+        </div>
+    </div>
 
     <div class="form-group row">
         <label for="language" class="control-label col-xs-offset-1 col-xs-3">Language:</label>
         <div class="col-xs-4">
 
-          <select class="form-control" name = "primarylanguage" style="width: auto;" ng-model="tests.primarylanguage">
+            <select class="form-control" name="primarylanguage" style="width: auto;" ng-model="tests.primarylanguage">
             {{tests.primarylanguage}}
-
           <option value="" selected="selected" >Select a language</option>
           <option value="English">English</option>
           <option value="Spanish">Spanish</option>
       {{tests.primarylanguage}}
         </select>
+        </div>
+        <div class="col-xs-offset-3 col-xs-10">
+            <button id="intakesubmit" class="btn btn-default  col-xs-offset-1 " ng-click="tests.getTests()">Submit</button>
 
-
-        <div ng-repeat="test in tests.Array track by $index">
-        <p>
-        {{test.name}}
-        {{test.language}}
-        {{test.available}}
-
-
-
-        </p>
         </div>
 
-
-
-
-
-
-
-
-    <div class="col-xs-offset-3 col-xs-10">
-        <button id="intakesubmit" class="btn btn-default  col-xs-offset-1 " ng-click="tests.getTests()">Submit</button>
-    </div>
+        <p ng-hide="tests.appropriateTest">
+          There are no appropriate tests for this criteria.
+        </p>
 </form>
+<table class="testtable col-xs-12">
+    <tr class="testtable">
+        <td class="testtable">
+            Name
+        </td>
+        <td class="testtable">
+            Available
+        </td>
+    </tr>
+    <tr class="testtable" ng-repeat="test in tests.Array track by $index">
+        <td class="testtable">
+            {{test.name}}
+        </td>
+        <td class="testtable">
+            {{test.available}}
+        </td>
+
+    </tr>
+
+</table>

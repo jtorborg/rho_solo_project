@@ -1,17 +1,36 @@
-
 <h1>Complete List of Tests</h1>
 
 <div class="col-xs-offset-3 col-xs-10">
     <button id="librarysubmit" class="btn btn-default  col-xs-offset-1 " ng-click="library.getLibrary()">Submit</button>
 </div>
-</form>
-<div ng-repeat="lib in library.Array track by $index">
-    <p>
-        {{lib.name}} {{lib.language}} {{lib.available}}
-        <div class="col-xs-6" ng-show="true">
-            <label for="info">Info:</label>
-            <input type="text" id="info" name="info" class="form-control" placeholder="Please indicate who has this test and how long you will need it" />
-    </p>
-    </div>
-    <button ng-click="library.checkoutTest(lib.id, lib.available, lib.comments)" class="btn btn-default  col-xs-offset-1">Check In/Out</button>
-</div>
+<table class="librarytable">
+  <tr class="librarytable">
+
+    <td class="librarytable">
+        Name
+    </td>
+    <td class="librarytable">
+        Available
+    </td>
+    <td class="librarytable">
+        Checkout
+    </td>
+    <td class="librarytable">
+        Comment
+    </td>
+  </tr>
+    <tr class="librarytable" ng-repeat="lib in library.Array track by $index">
+
+
+        <td class="librarytable">{{lib.name}}</td>
+
+        <td class="librarytable">{{lib.available}}</td>
+        <td class="librarytable">
+
+            <button class="librarytable" ng-click="library.checkoutTest(lib.id, lib.available, lib.comments)" class="btn btn-default  col-xs-offset-1">Check In/Out</button>
+        </td>
+        <td class="col-xs-5 librarytable" ng-show="true">
+            <input type="text" id="info" name="info" class="form-control librarytable" placeholder="Please indicate who has this test and how long you will need it" />
+        </td>
+</tr>
+</table>
