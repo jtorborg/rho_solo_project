@@ -32,7 +32,7 @@ h1 {
 
 h2 {
     font-family: 'Coming Soon', cursive;
-    color: #e1a179;
+    color: #fab387;
     font-weight: bold;
     padding: 0px;
     margin: 0px;
@@ -144,8 +144,11 @@ display: block;
 footer {
   position: fixed;
   z-index: 1;
-
+  margin: 0px;
+  padding: 0px;
 }
+
+
 img {
   z-index: 1;
   opacity: 0.6;
@@ -167,6 +170,19 @@ img {
 }
 
 iframe {
-
-  align-content: center;
+/*display: block;*/
+margin-left: 125px;
+padding: 0px;
 }
+
+.resourcelink {
+  text-align: center;
+  margin-left: 400px;
+}
+
+#grassimage {
+  margin: 0px;
+  padding: 0px;
+}
+
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
