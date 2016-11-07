@@ -27,7 +27,12 @@
 
         <td class="table-info">{{lib.name}}</td>
 
-        <td class="librarytable">{{lib.available}}</td>
+        <td class="librarytable" ng-class="{avail: lib.available==false}">
+{{lib.available}}
+
+          <!-- {{library.Answer}} -->
+        </td>
+      </td>
         <td class="librarytable">
 
             <button class="librarytable" ng-click="library.checkoutTest(lib.id, lib.available, lib.comments)" class="btn btn-default  col-xs-offset-1">Check In/Out</button>
