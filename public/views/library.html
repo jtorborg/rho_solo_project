@@ -1,7 +1,7 @@
 <h1>Complete List of Tests</h1>
 
-<div class="col-xs-offset-3 col-xs-10">
-    <button id="librarysubmit" class="btn btn-default  col-xs-offset-1 " ng-click="library.getLibrary()">Submit</button>
+<div class="col-xs-offset-3 col-xs-10" data-ng-init="library.getLibrary()">
+    <!-- <button id="librarysubmit" class="btn btn-default  col-xs-offset-1 " ng-click="library.getLibrary()">Submit</button> -->
 </div>
 
 
@@ -33,7 +33,9 @@
             <button class="librarytable" ng-click="library.checkoutTest(lib.id, lib.available, lib.comments)" class="btn btn-default  col-xs-offset-1">Check In/Out</button>
         </td>
         <td class="col-xs-5 librarytable">
-            <input type="text" id="info" name="info" class="form-control librarytable" placeholder="Please indicate who has this test and how long you will need it" />
+            <input type="text" id="info" name="info" class="form-control librarytable" placeholder="Initials and date checkedout" ng-model = "lib.comments"/>
+
+<!-- {{lib.comments}} -->
         </td>
 </tr>
 </table>

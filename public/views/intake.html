@@ -107,5 +107,7 @@
     <div class="col-xs-offset-3 col-xs-10">
 
         <button id="intakesubmit" class="btn btn-default  col-xs-offset-1 " ng-click="intake.postStudent(intake.firstname, intake.lastname, intake.age, intake.dob, intake.insurance, intake.medical, intake.appointment, intake.primarylanguage, intake.concerns_id)">Submit</button>
+        <button id="intakesubmit" class="btn btn-default  col-xs-offset-1 " ng-click="intake.getStudents()">Get Students</button>
+{{intake.Array}}
     </div>
 </form>

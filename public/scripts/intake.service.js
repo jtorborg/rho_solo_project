@@ -21,4 +21,14 @@ this.postConcerns = function(concerns) {//pass your data!!!
 
  } //end of postConcerns
 
+
+ this.getStudents = function() {//pass your data!!!
+ //send post to route; route will send to database
+      return $http.get('/intake')
+          .then(function(students) {
+              return students;  //!!!!!!!!!!
+          });
+
+} //end of postStudent
+
 }//end of intakeService

@@ -5,6 +5,7 @@ function IntakeController(intakeService) {
     console.log('IntakeController loaded');
 
     var intake = this;
+    intake.Array = [];
 
 
     this.postStudent = function(firstname, lastname, age, dob, insurance, medical, appointment, primarylanguage, concerns_id) {
@@ -28,20 +29,15 @@ function IntakeController(intakeService) {
     }; //end of postStudent
 
 
-//     this.postConcerns = function(firstname, age, language, articulation, pragmatics, fluency, voice) {
-//         console.log('inside postConcerns');
-//         intake.studentconcerns = {
-//
-//             firstname: firstname,
-//             age: age,
-//             students_id: students_id,
-//             concerns_id: concerns_id
-//         };
-// console.log("intake student concerns", intake.studentconcerns);
-// intakeService.postConcerns(intake.studentconcerns).then(function(response) {
-//     console.log("response from post concerns", response);
-// });
-//     }; //end of postConcerns
+    this.getStudents = function() {
+        console.log('inside getStudents');
+        intakeService.getStudents().then(function(response) {
+            console.log("response from get students", response);
+            intake.Array = response.data;
+            console.log("intake array", intake.Array);
+
+        });
+    }; //end of getStudents
 
 
 

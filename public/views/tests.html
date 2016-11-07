@@ -35,14 +35,9 @@
       {{tests.primarylanguage}}
         </select>
         </div>
-        <div class="col-xs-offset-3 col-xs-10">
-            <button id="intakesubmit" class="btn btn-default  col-xs-offset-1 " ng-click="tests.getTests()">Submit</button>
 
-        </div>
 
-        <p ng-hide="tests.appropriateTest">
-          There are no appropriate tests for this criteria.
-        </p>
+
 </form>
 <table class="testtable col-xs-12">
     <tr class="testtable">
@@ -64,3 +59,11 @@
     </tr>
 
 </table>
+
+<div class="col-xs-offset-3 col-xs-10">
+    <button id="intakesubmit" class="btn btn-default  col-xs-offset-1 " ng-click="tests.getTests()">Submit</button>
+
+</div>
+<span ng-hide="tests.appropriateTest">
+  There are no appropriate tests for this criteria.
+</span>

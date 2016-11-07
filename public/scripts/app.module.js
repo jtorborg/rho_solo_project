@@ -1,1 +1,1 @@
-angular.module('speechApp', ['ngRoute', 'ui.bootstrap']);
+angular.module('speechApp', ['ngRoute']);
