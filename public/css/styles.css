@@ -38,11 +38,16 @@ h2 {
     margin: 0px;
     text-align: center;
 }
+h3 {
+  color: #8795fa !important;
+}
 
 form {
     margin: 0px;
     padding: 0px;
     z-index: 10;
+    background-color: #f0f9fe !important;
+    color: #365264
 }
 
 div.navbar text-center {
@@ -162,6 +167,12 @@ img {
   z-index: 8;
 }
 
+
+.intaketable {
+  text-align: left;
+  margin-right: 400px;
+  z-index: 8;
+}
 .testtable {
   text-align: left;
   margin-right: 75px;
@@ -177,6 +188,7 @@ padding: 0px;
 .resourcelink {
   text-align: center;
   margin-left: 400px;
+  color: #8795fa;
 }
 
 #grassimage {

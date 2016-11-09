@@ -36,7 +36,7 @@ concerns_id integer NOT NULL REFERENCES concerns
 );
 
 CREATE TABLE students_concerns (
-students_id integer NOT NULL REFERENCES students,
+students_id integer NOT NULL REFERENCES students ON DELETE CASCADE,
 concerns_id integer NOT NULL REFERENCES concerns
 );
 

@@ -104,6 +104,65 @@ router.get('/', function(req, res) {
 
 
 
+  router.put('/:id', function(req, res) {
+    console.log('req params', req.params);
+    console.log('req body', req.body);
+    var intakeid = req.params.id;
+  console.log("intake", intakeid);
+  pool.connect(function(err, client, done){
+     try {
+       if (err) {
+         console.log('Error connecting the DB', err);
+         res.sendStatus(500);
+         return;
+       }
+
+
+
+       client.query('UPDATE students SET firstname=$2, lastname=$3, dob=$4, age=$5, primarylanguage=$6 WHERE id=$1 RETURNING *;',
+       [intakeid, req.body.firstname, req.body.lastname, req.body.dob, req.body.age, req.body.primarylanguage],
+
+       function(err, result) {
+        if (err) {
+           console.log('Error querying database', err);
+           res.sendStatus(500);
+         } else {
+           console.log('result rows', result.rows);
+           res.send(result.rows);//!!!@@@send back to client side
+         }
+       });
+     } finally {
+       done();
+     }
+   });//end of put function
+ });//end of put function
+
+ router.delete('/:id', function(req, res){
+   var id = req.params.id;
+ console.log("id", id);
+   pool.connect(function(err, client, done){
+     try {
+       if (err) {
+         console.log('Error connecting to DB', err);
+         res.sendStatus(500);
+         return;
+       }
+
+       client.query('DELETE FROM students WHERE id = $1', [id], function(err){
+         if (err) {
+           console.log('Error querying the DB', err);
+           res.sendStatus(500);
+           return;
+         }
+
+         res.sendStatus(204);////!!!@@@send back to AJAX success
+       });
+     } finally {
+       done();
+     }
+   });
+ });//end of delete function
+
 
 //~~~~~~~~~~~
 module.exports = router;

@@ -39,7 +39,42 @@ function IntakeController(intakeService) {
         });
     }; //end of getStudents
 
+    this.updateStudent = function(id, firstname, lastname, age, dob, insurance, medical, appointment, primarylanguage, concerns_id) {
 
+console.log('inside update student');
+console.log("id", id);
+
+ console.log('first name', firstname);
+ console.log('primary lang', primarylanguage);
+         intake.modifiedStudent = {
+           id: id,
+           firstname: firstname,
+           lastname: lastname,
+           age: age,
+           dob: dob,
+           insurance: insurance,
+           medical: medical,
+           appointment: appointment,
+           primarylanguage: primarylanguage,
+           concerns_id: concerns_id
+         }
+//
+ console.log('intake modified student', intake.modifiedStudent);
+        intakeService.updateStudent(intake.modifiedStudent).then(function(response) {
+
+            console.log("response", response);
+       });
+
+    }//end of update student
+
+    this.deleteStudent = function(id) {
+        console.log('inside deleteStudents');
+        console.log(id);
+         intakeService.deleteStudent(id).then(function(response) {
+             console.log("response from get students", response);
+
+         });
+    }; //end of getStudents
 
 
 

@@ -29,6 +29,26 @@ this.postConcerns = function(concerns) {//pass your data!!!
               return students;  //!!!!!!!!!!
           });
 
-} //end of postStudent
+} //end of getStudents
+
+
+
+        this.updateStudent = function(modifiedStudent) {
+          console.log('intake modified student,intakeid', modifiedStudent, modifiedStudent.id);
+            return $http.put('/intake/' + modifiedStudent.id, modifiedStudent).then(function(status) {
+
+                return modifiedStudent;
+            });
+}//end of update student
+
+this.deleteStudent = function(id) {
+  console.log('intake delete student');
+console.log(id);
+    return $http.delete('/intake/' + id).then(function(status) {
+
+        return id;
+    });
+}//end of deleted student
+
 
 }//end of intakeService
