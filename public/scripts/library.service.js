@@ -10,8 +10,6 @@ function libraryService($http) {
             });
 
         } //end of getLibrary
-        //getLibrary();
-
 
         this.checkoutTest = function(librarytestStatus) {
           console.log('library.testStatus,libraryid', librarytestStatus);

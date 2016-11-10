@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const login = require('./routes/login');
+const logout = require('./routes/logout');
+
 const register = require('./routes/register');
 
 
@@ -40,6 +42,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/login', login);
+app.use('/login', logout);
+
 app.use('/register', register);
 app.use('/calendar', calendar);
 app.use('/intake', intake);

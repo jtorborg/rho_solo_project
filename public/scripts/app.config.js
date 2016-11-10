@@ -5,6 +5,9 @@ angular.module('speechApp').config(function($routeProvider, $locationProvider) {
   $routeProvider.when('/login', {
     templateUrl: 'views/login.html',
     controller: 'LoginController as login'
+  }).when('/logout', {
+    templateUrl: 'views/logout.html',
+    controller: 'LogoutController as logout'
   }).when('/register', {
     templateUrl: 'views/register.html',
     controller: 'RegisterController as register'
@@ -24,6 +27,6 @@ angular.module('speechApp').config(function($routeProvider, $locationProvider) {
     templateUrl: 'views/tests.html',
     controller: 'TestsController as tests'
   }).otherwise({
-    redirectTo: "/home"
+    redirectTo: "/login"
   });
 });

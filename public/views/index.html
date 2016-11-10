@@ -20,6 +20,8 @@
 
     <script src="scripts/app.module.js" charset="utf-8"></script>
     <script src="scripts/login.controller.js" charset="utf-8"></script>
+    <script src="scripts/logout.controller.js" charset="utf-8"></script>
+
     <script src="scripts/register.controller.js" charset="utf-8"></script>
     <script src="scripts/calendar.controller.js" charset="utf-8"></script>
     <script src="scripts/home.controller.js" charset="utf-8"></script>
@@ -45,6 +47,8 @@
             <a href="calendar" class="btn btn-default" role="button">CALENDAR</a>
             <a href="login" class="btn btn-default" role="button">LOGIN</a>
             <a href="register" class="btn btn-default" role="button">REGISTER</a>
+            <a href="logout" class="btn btn-default" role="button" ng-controller = "LogoutController as logout" ng-click="logout.logout()">LOGOUT</a>
+
         </div>
         <div class="cloud x1"></div>
         <div class="cloud x4"></div>

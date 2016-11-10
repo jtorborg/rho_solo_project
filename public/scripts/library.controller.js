@@ -14,10 +14,7 @@ function LibraryController(libraryService) {
         library.Answer = "no";
 }
       console.log('library answer', library.Answer);
-        // ctrl.library = {
-        //   name: name
-        // }
-        //get request to /library
+
 
         library.getLibrary = function() {
             console.log('inside getLibrary');

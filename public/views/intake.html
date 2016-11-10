@@ -178,16 +178,16 @@
           <input type="checkbox" id="info" name="info" class="form-control" name="insurance" value="insurance" ng-model="intakevariable.insurance">  {{intakevariable.insurance?'yes':'no'}}
         </td>
         <td>
-          <input type="checkbox" id="info" name="info" class="form-control" name="insurance" value="insurance" ng-model="intakevariable.medical">  {{intakevariable.medical?'yes':'no'}}
+          <input type="checkbox" id="info" name="info" class="form-control" name="medical" value="medical" ng-model="intakevariable.medical">  {{intakevariable.medical?'yes':'no'}}
 
         </td>
         <td>
 
-            <input type="checkbox" id="info" name="info" class="form-control" name="insurance" value="insurance" ng-model="intakevariable.appointment"">  {{intakevariable.appointment?'yes':'no'}}
+            <input type="checkbox" id="info" name="info" class="form-control" name="appointment" value="appointment" ng-model="intakevariable.appointment">  {{intakevariable.appointment?'yes':'no'}}
 
-        </td>
+</td>
         <td class="intakeudpatebutton">
-            <button id="intakesubmit" class="btn btn-default" ng-click="intake.updateStudent(intakevariable.id, intakevariable.firstname, intakevariable.lastname, intakevariable.age, intakevariable.dob, intake.insurance, intake.medical, intake.appointment, intake.primarylanguage, intake.concerns_id)">Update</button>
+            <button id="intakesubmit" class="btn btn-default" ng-click="intake.updateStudent(intakevariable.id, intakevariable.firstname, intakevariable.lastname, intakevariable.age, intakevariable.dob, intakevariable.insurance, intakevariable.medical, intakevariable.appointment, intakevariable.primarylanguage, intakevariable.concerns_id)">Update</button>
         </td>
         <td class="intakedeletebutton">
             <button id="intakesubmit" class="btn btn-default" ng-click="intake.deleteStudent(intakevariable.id)" class="btn btn-default">Delete</button>

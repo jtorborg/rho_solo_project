@@ -119,8 +119,8 @@ router.get('/', function(req, res) {
 
 
 
-       client.query('UPDATE students SET firstname=$2, lastname=$3, dob=$4, age=$5, primarylanguage=$6 WHERE id=$1 RETURNING *;',
-       [intakeid, req.body.firstname, req.body.lastname, req.body.dob, req.body.age, req.body.primarylanguage],
+       client.query('UPDATE students SET firstname=$2, lastname=$3, dob=$4, age=$5, insurance=$6, medical=$7, appointment=$8, primarylanguage=$9 WHERE id=$1 RETURNING *',
+       [intakeid, req.body.firstname, req.body.lastname, req.body.dob, req.body.age, req.body.insurance, req.body.medical, req.body.appointment, req.body.primarylanguage],
 
        function(err, result) {
         if (err) {

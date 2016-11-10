@@ -63,6 +63,8 @@ console.log("id", id);
         intakeService.updateStudent(intake.modifiedStudent).then(function(response) {
 
             console.log("response", response);
+            intake.getStudents();
+
        });
 
     }//end of update student
@@ -72,6 +74,7 @@ console.log("id", id);
         console.log(id);
          intakeService.deleteStudent(id).then(function(response) {
              console.log("response from get students", response);
+             intake.getStudents();
 
          });
     }; //end of getStudents
