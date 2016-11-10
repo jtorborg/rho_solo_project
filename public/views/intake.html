@@ -84,7 +84,8 @@
         <label for="insurance" class="control-label col-xs-offset-1 col-xs-3">Insurance Info Received?</label>
         <div class="col-xs-8">
 
-            <input type="checkbox" name="insurance" value="insurance" ng-model="intake.insurance"> {{intake.insurance}}
+            <input type="checkbox" name="insurance" value="insurance" ng-model="intake.insurance">  {{intake.insurance?'yes':'no'}}
+
 
         </div>
     </div>
@@ -93,7 +94,7 @@
         <label for="medical" class="control-label col-xs-offset-1 col-xs-3">Medical Provider Report Received?</label>
         <div class="col-xs-8">
 
-            <input type="checkbox" name="medical" value="medical" ng-model="intake.medical"> {{intake.medical}}
+            <input type="checkbox" name="medical" value="medical" ng-model="intake.medical"> {{intake.medical?'yes':'no'}}
 
         </div>
 
@@ -103,7 +104,7 @@
         <label for="appt" class="control-label col-xs-offset-1 col-xs-3">Appointment Scheduled?</label>
         <div class="col-xs-8">
 
-            <input type="checkbox" name="appt" value="appt" ng-model="intake.appointment"> {{intake.appointment}}
+            <input type="checkbox" name="appt" value="appt" ng-model="intake.appointment"> {{intake.appointment?'yes':'no'}}
         </div>
 
     </div>
@@ -118,88 +119,78 @@
     </div>
 
 </form>
-<table class="intaketable col-xs-12">
-    <tr class="intaketable">
-        <td class="intaketable">
-            ID </td>
-        <td class="intaketable">
+<table class = "intaketable">
+    <tr>
+        <th style="width:20px">
+            ID
+        </th>
+        <th style="width:20px">
             First Name
-        </td>
-        <td class="intaketable">
+        </th>
+        <th style="width:20px">
             Last Name
-        </td>
-        <td class="intaketable">
+        </th>
+        <th style="width:10px">
             Date of Birth
-        </td>
-        <td class="intaketable">
+        </th>
+        <th style="width:5px">
             Age
-        </td>
-        <td class="intaketable">
+        </th>
+        <th style="width:8px">
             Language
-        </td>
-        <td class="intaketable">
-          Insurance
-        </td>
-        <td class="intaketable">
-          Medical
-        </td>
-        <td class="intaketable">
-          Appointment
-        </td>
-        <td class="intaketable">
-        </td>
-        <td class="intaketable">
+        </th>
+        <th style="width:5px">
+            Insurance
+        </th>
+        <th style="width:5px">
+            Medical
+        </th>
+        <th style="width:5px">
+            Appointment
+        </th>
+        <th style="width:10px">
             Update
-        </td>
-        <td class="intaketable">
-Delete        </td>
+        </th>
+        <th style="width:10px">
+            Delete
+        </th>
     </tr>
-    <tr class="intaketable" ng-repeat="intakevariable in intake.Array track by $index">
-      <td class="intaketable">
-{{intakevariable.id}}
-      </td>
-        <td class= "col-xs-2 intaketable">
-          <input type="text" id="info" name="info" class="form-control intaketable"  ng-model = "intakevariable.firstname"/>
+    <tr ng-repeat="intakevariable in intake.Array track by $index">
+        <td>
+            {{intakevariable.id}}
+        </td>
+        <td>
+            <input type="text" id="info" name="info" class="form-control" ng-model="intakevariable.firstname" />
+        </td>
+        <td>
+            <input type="text" id="info" name="info" class="form-control" placeholder="not given" ng-model="intakevariable.lastname" />
+        </td>
+        <td>
+            <input type="text" id="info" name="info" class="form-control" placeholder="YYYY-MM-DD" ng-model="intakevariable.dob" />
+        </td>
+        <td>
+            <input type="text" id="info" name="info" class="form-control" placeholder="not given" ng-model="intakevariable.age" />
+        </td>
+        <td>
+            <input type="text" id="info" name="info" class="form-control" placeholder="not given" ng-model="intakevariable.primarylanguage" />
+        </td>
+        <td>
+          <input type="checkbox" id="info" name="info" class="form-control" name="insurance" value="insurance" ng-model="intakevariable.insurance">  {{intakevariable.insurance?'yes':'no'}}
+        </td>
+        <td>
+          <input type="checkbox" id="info" name="info" class="form-control" name="insurance" value="insurance" ng-model="intakevariable.medical">  {{intakevariable.medical?'yes':'no'}}
 
         </td>
-        <td class="intaketable">
-          <input type="text" id="info" name="info" class="form-control intaketable" maxlength="20" ng-model = "intakevariable.lastname"/>
+        <td>
 
-        </td>
-        <td class="intaketable">
-          <input type="text" id="info" name="info" class="form-control intaketable"  ng-model = "intakevariable.dob"/>
-
-        </td>
-        <td class="intaketable">
-          <input type="text" id="info" name="info" class="form-control intaketable" size = "3" ng-model = "intakevariable.age"/>
-
-        </td>
-        <td class="intaketable">
-          <input type="text" id="info" name="info" class="form-control intaketable"  ng-model = "intakevariable.primarylanguage"/>
-
-        </td>
-
-        <td class="intaketable">
-          <input type="text" id="info" name="info" class="form-control intaketable"  ng-model = "intakevariable.insurance"/>
-
-        </td>
-        <td class="intaketable">
-          <input type="text" id="info" name="info" class="form-control intaketable"  ng-model = "intakevariable.medical"/>
-
-        </td>
-        <td class="intaketable">
-          <input type="text" id="info" name="info" class="form-control intaketable"  ng-model = "intakevariable.appointment"/>
+            <input type="checkbox" id="info" name="info" class="form-control" name="insurance" value="insurance" ng-model="intakevariable.appointment"">  {{intakevariable.appointment?'yes':'no'}}
 
         </td>
         <td class="intakeudpatebutton">
-            <button id="intakesubmit" class="btn btn-default  col-xs-offset-1 " ng-click="intake.updateStudent(intakevariable.id, intakevariable.firstname, intakevariable.lastname, intakevariable.age, intakevariable.dob, intake.insurance, intake.medical, intake.appointment, intake.primarylanguage, intake.concerns_id)">Update</button>
-
+            <button id="intakesubmit" class="btn btn-default" ng-click="intake.updateStudent(intakevariable.id, intakevariable.firstname, intakevariable.lastname, intakevariable.age, intakevariable.dob, intake.insurance, intake.medical, intake.appointment, intake.primarylanguage, intake.concerns_id)">Update</button>
         </td>
         <td class="intakedeletebutton">
-            <button id="intakesubmit" class="btn btn-default  col-xs-offset-1" ng-click="intake.deleteStudent(intakevariable.id)" class="btn btn-default  col-xs-offset-1">Delete</button>
-
+            <button id="intakesubmit" class="btn btn-default" ng-click="intake.deleteStudent(intakevariable.id)" class="btn btn-default">Delete</button>
         </td>
-
     </tr>
-
 </table>
