@@ -29,7 +29,7 @@ router.get('/', function(req, res) {
             return;
 
         } //end of if statement
-        client.query('SELECT * FROM tests ORDER BY id', function(err, result) {
+        client.query('SELECT * FROM tests ORDER BY name', function(err, result) {
             done();
             if (err) {
                 console.log('err', err);

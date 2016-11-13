@@ -29,25 +29,34 @@
     <script src="scripts/intake.service.js" charset="utf-8"></script>
     <script src="scripts/library.controller.js" charset="utf-8"></script>
     <script src="scripts/library.service.js" charset="utf-8"></script>
+    <script src="scripts/roster.service.js" charset="utf-8"></script>
+    <script src="scripts/roster.controller.js" charset="utf-8"></script>
 
     <script src="scripts/tests.controller.js" charset="utf-8"></script>
     <script src="scripts/tests.service.js" charset="utf-8"></script>
+    <script src="scripts/caseload.controller.js" charset="utf-8"></script>
+    <script src="scripts/caseload.service.js" charset="utf-8"></script>
     <script src="scripts/app.config.js" charset="utf-8"></script>
 
     <base href="/" />
 </head>
+
 
 <body>
     <div id="clouds" style="height: 65px;">
         <div class="navbar text-center">
             <a href="home" class="btn btn-default" role="button">HOME</a>
             <a href="intake" class="btn btn-default" role="button">INTAKE</a>
+            <a href="roster" class="btn btn-default" role="button">WAIT LIST</a>
             <a href="tests" class="btn btn-default" role="button">TESTS</a>
             <a href="library" class="btn btn-default" role="button">LIBRARY</a>
+              <a href="caseload" class="btn btn-default" role="button">CASE LOAD</a>
+
             <a href="calendar" class="btn btn-default" role="button">CALENDAR</a>
-            <a href="login" class="btn btn-default" role="button">LOGIN</a>
-            <a href="register" class="btn btn-default" role="button">REGISTER</a>
-            <a href="logout" class="btn btn-default" role="button" ng-controller = "LogoutController as logout" ng-click="logout.logout()">LOGOUT</a>
+
+            <a href="login" class="btn btn-link" role="button" margin-left = "60px">LOGIN</a>
+            <a href="logout" class="btn btn-link" role="button" ng-controller = "LogoutController as logout" ng-click="logout.logout()">LOGOUT</a>
+            <a href="register" class="btn btn-link" role="button">REGISTER</a>
 
         </div>
         <div class="cloud x1"></div>

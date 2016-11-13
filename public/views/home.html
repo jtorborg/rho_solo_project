@@ -4,9 +4,104 @@
  </a>
  <a class="resourcelink" href=" http://www.asha.org/public/speech/development/" target="_blank">American Speech-Language-Hearing Association (see quick links below)</a>
 
-<h2>Development Milestones</h2>
-<h3 ng-click="babyShow=!babyShow">Show Milestones for Ages Birth - 1 Year</h3>
 
+ <div>
+
+   <h2 class="milestones">Development Milestones</h2>
+
+   <a>
+ <h3 ng-click="wordsShow=!wordsShow">Vocabulary Milestones for ages 1-12</h3>
+ </a>
+ <div ng-show="wordsShow" class="showme">
+   <table>
+     <tr>
+
+     <th>
+       Age in Years
+     </th>
+     <th>
+       Vocabulary
+     </th>
+   </tr>
+   <tr>
+     <td>
+       1 to 1 ½
+     </td>
+     <td>
+       Toddlers develop around a 20-word vocabulary during this time.
+
+     </td>
+   </tr>
+   <td>
+     2
+   </td>
+   <td>
+     By the time a child is 2 years old, he/she will have a 200–300-word
+    vocabulary.
+   </td>
+   <tr>
+     <td>
+       3
+     </td>
+     <td>
+       Vocabulary grows to be about 900–1,000 words by the time a child is 3 years
+       old.
+     </td>
+   </tr>
+   <tr>
+     <td>
+       4
+     </td>
+     <td>
+       The typical 4-year-old child will have about a 1,500–1,600-word vocabulary.
+
+     </td>
+   </tr>
+
+    <tr>
+      <td>
+        5
+
+      </td>
+      <td>
+        By the time a child reaches school age and heads to kindergarten, he/she will
+        have between a 2,100- and 2,200-word vocabulary.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        6
+      </td>
+      <td>
+        The 6-year-old child typically has a 2,600 word expressive vocabulary (words
+        he or she says), and a receptive vocabulary (words he or she understands) of
+        20,000–24,000 words.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        12
+      </td>
+      <td>
+        By the time a child is 12 years old, he/she will understand (have a
+        receptive vocabulary) of about 50,000 words.
+      </td>
+    </tr>
+
+
+ </table>
+
+</div>
+
+
+
+
+
+
+
+<a>
+<h3 ng-click="babyShow=!babyShow">General Milestones for Ages Birth - 1 Year</h3>
+</a>
 <div ng-show="babyShow" class="showme">
 
     <h4>Hearing and Understanding</h4>
@@ -77,8 +172,10 @@
 </div>
 </div>
 <!-- ... -->
-<h3 ng-click="oneShow=!oneShow">Show Milestones for Ages 1 Year - 2 Years</h3>
+<a>
 
+<h3 ng-click="oneShow=!oneShow">General Milestones for Ages 1 Year - 2 Years</h3>
+</a>
 <div ng-show="oneShow" class="showme">
 
 <h4>Hearing and Understanding	</h4>
@@ -132,9 +229,9 @@
 
 </div>
 <!-- .... -->
-
-<h3 ng-click="twoShow=!twoShow">Show Milestones for Ages 2 Years - 3 Years</h3>
-
+<a>
+<h3 ng-click="twoShow=!twoShow">General Milestones for Ages 2 Years - 3 Years</h3>
+</a>
 <div ng-show="twoShow" class="showme">
 <h4>Hearing and Understanding	</h4>
 <ul>
@@ -186,9 +283,9 @@ Listens to and enjoys hearing stories for longer periods of time
 </div>
 
 <!-- .... -->
-
-<h3 ng-click="threeShow=!threeShow">Show Milestones for Ages 3 Years - 4 Years</h3>
-
+<a>
+<h3 ng-click="threeShow=!threeShow">General Milestones for Ages 3 Years - 4 Years</h3>
+</a>
 <div ng-show="threeShow" class="showme">
   <h4>Hearing and Understanding	</h4>
   <ul>
@@ -266,9 +363,9 @@ Listens to and enjoys hearing stories for longer periods of time
 
 
 <!-- ..... -->
-
-<h3 ng-click="fourShow=!fourShow"> Show Milestones for Ages 4 years - 5 years</h3>
-
+<a>
+<h3 ng-click="fourShow=!fourShow">General Milestones for Ages 4 Years - 5 Years</h3>
+</a>
 <div ng-show="fourShow" class="showme">
   <h4>Hearing and Understanding	</h4>
 
@@ -347,7 +444,7 @@ Listens to and enjoys hearing stories for longer periods of time
 
 
 
-<div ng-click="fiveShow=!fiveShow" is-open="home.status.isopen" is-disabled="home.status.isFirstDisabled">
+<div ng-click="fiveShow=!fiveShow">
     <div ng-show="fiveShow" class="showme">
 
       <h4>Hearing and Understanding	</h4>
@@ -409,6 +506,3 @@ Responds to "What did you say?"</li>
 
 </ul>
     </div>
-
-
-</div>

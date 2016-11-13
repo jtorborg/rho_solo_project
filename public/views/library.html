@@ -1,48 +1,43 @@
-<h1>Complete List of Tests</h1>
-
-<div class="col-xs-offset-3 col-xs-10" data-ng-init="library.getLibrary()">
-    <!-- <button id="librarysubmit" class="btn btn-default  col-xs-offset-1 " ng-click="library.getLibrary()">Submit</button> -->
-</div>
+<h1>Test Library</h1>
 
 <div class="col-xs-offset-3 col-xs-10" data-ng-init="library.getLibrary()">
 </div>
 
 
 
-<table class="table.info" >
-  <tr class="librarytable">
-
-    <td class="librarytable">
+<table class = "librarytable">
+  <tr>
+    <th style="width:350px">
         Name
-    </td>
-    <td class="librarytable">
+    </th>
+    <th style="width:80px">
         Available
-    </td>
-    <td class="librarytable">
-        Checkout
-    </td>
-    <td class="librarytable">
+    </th>
+    <th style="width:60px">
+        Check In/Out
+    </th>
+    <th style="width:40px">
         Comment
-    </td>
+    </th>
   </tr>
-    <tr class="librarytable" ng-repeat="lib in library.Array track by $index" >
+    <tr ng-repeat="lib in library.Array track by $index" >
 
 
-        <td class="table-info">{{lib.name}}</td>
+        <td id="libraryname">{{lib.name}}</td>
 
-        <td class="librarytable" ng-class="{avail: lib.available==false}">
-{{lib.available?'yes':'no'}}
+        <td ng-class="{avail: lib.available==false}">
+{{lib.available?'Yes':'No'}}
 
           <!-- {{library.Answer}} -->
 
         </td>
       </td>
-        <td class="librarytable">
+        <td>
 
-            <button class="librarytable btn btn-default" ng-click="library.checkoutTest(lib.id, lib.available, lib.comments)" class="btn btn-default  col-xs-offset-1">Check In/Out</button>
+            <button class="btn btn-default" ng-click="library.checkoutTest(lib.id, lib.available, lib.comments)" class=btn btn-outline-info"  col-xs-offset-1"></button>
         </td>
-        <td class="col-xs-5 librarytable">
-            <input type="text" id="info" name="info" class="form-control librarytable" placeholder="Initials and date checkedout" ng-model = "lib.comments"/>
+        <td class="col-xs-5">
+            <input type="text" id="info" name="info" class="form-control" style= "background-color: #e2ecf6"; placeholder="Initials and date checked out" ng-model = "lib.comments"/>
 
 <!-- {{lib.comments}} -->
         </td>

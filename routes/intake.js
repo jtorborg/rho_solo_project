@@ -30,7 +30,7 @@ router.post('/', function(req, res) {
         } //end of if statement
         console.log("req body", req.body);
 
-        client.query('INSERT INTO students (firstname, lastname, dob, age, insurance, medical, appointment, primarylanguage) VALUES($1, $2, $3, $4, $5, $6, $7, $8) returning *', [req.body.firstname, req.body.lastname, req.body.dob, req.body.age, req.body.insurance, req.body.medical, req.body.appointment, req.body.primarylanguage], function(err, result) {
+        client.query('INSERT INTO students (firstname, lastname, dob, doc, age, insurance, medical, appointment, appointmentcomplete, primarylanguage, notes) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) returning *', [req.body.firstname, req.body.lastname, req.body.dob, req.body.doc, req.body.age, req.body.insurance, req.body.medical, req.body.appointment, req.body.appointmentcomplete, req.body.primarylanguage, req.body.notes], function(err, result) {
             done();
             if (err) {
                 console.log('err', err);
@@ -41,6 +41,7 @@ router.post('/', function(req, res) {
             // res.send(result.rows); //!!!@@@send back to AJAX success
             //take result id student id concern id; on the client side you are aware of what the concerns and you reference them off the req body
             var intakeId = result.rows[0].id;
+            console.log("intake id at row 44", intakeId);
             client.query('INSERT INTO students_concerns (students_id, concerns_id) VALUES($1, $2) returning *', [intakeId, req.body.concerns_id], function(err, result) {
                 done();
                 if (err) {
@@ -49,119 +50,56 @@ router.post('/', function(req, res) {
                     return;
                 } //end of if
                 console.log('result rows', result.rows);
-                res.sendStatus(201); //!!!@@@send back to AJAX success
+                //res.sendStatus(201); //!!!@@@send back to AJAX success
                 //take result id student id concern id; on the client side you are aware of what the concerns and you reference them off the req body
-                //var intakeId = result.rows.id;
+                var intakeId = result.rows[0].students_id;
+                console.log("intake id at row 56", intakeId);
+
+                client.query('INSERT INTO availability (students_id, mondaymorning, mondayafternoon, mondayevening, tuesdaymorning, tuesdayafternoon, tuesdayevening, wednesdaymorning, wednesdayafternoon, wednesdayevening, thursdaymorning, thursdayafternoon, thursdayevening, fridaymorning, fridayafternoon, fridayevening) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16) returning *', [intakeId, req.body.mondaymorning, req.body.mondayafternoon, req.body.mondayevening, req.body.tuesdaymorning, req.body.tuesdayafternoon, req.body.tuesdayevening, req.body.wednesdaymorning, req.body.wednesdayafternoon, req.body.wednesdayevening, req.body.thursdaymorning, req.body.thursdayafternoon, req.body.thursdayevening, req.body.fridaymorning, req.body.fridayafternoon, req.body.fridayevening], function(err, result) {
+                    done();
+                    if (err) {
+                        console.log('err', err);
+                        res.sendStatus(500);
+                        return;
+                    } //end of if
+                    console.log('result rows at 62', result.rows);
+                    res.sendStatus(201); //!!!@@@send back to AJAX success
+                    //take result id student id concern id; on the client side you are aware of what the concerns and you reference them off the req body
+
             }); //end of client query
 
+
+            //insert into availability calendar
+
         }); //end of client query
-    }); //end pool connect
-
-}); //end of router post
-
-router.post('/', function(req, res) {
-
-    pool.connect(function(err, client, done) {
-
-        if (err) {
-            console.log('Error connecting the DB', err);
-            res.sendStatus(500);
-            done();
-            return;
-
-        } //end of if statement
-        console.log("req body", req.body);
 
 
     }); //end pool connect
 
 }); //end of router post
 
-router.get('/', function(req, res) {
-
-    pool.connect(function(err, client, done) {
-
-        if (err) {
-            console.log('Error connecting the DB', err);
-            res.sendStatus(500);
-            done();
-            return;
-
-        } //end of if statement
-        client.query('SELECT * FROM students ORDER BY id', function(err, result) {
-            done();
-            if (err) {
-                console.log('err', err);
-                res.sendStatus(500);
-                return;
-            } //end of if
-
-            res.send(result.rows); //!!!@@@send back to AJAX success
-        }); //end of client query
-    }); //end pool connect
-  }); //end of router get
+}); //end of router post
 
 
+// router.post('/', function(req, res) {
+//
+//     pool.connect(function(err, client, done) {
+//
+//         if (err) {
+//             console.log('Error connecting the DB', err);
+//             res.sendStatus(500);
+//             done();
+//             return;
+//
+//         } //end of if statement
+//         console.log("req body", req.body);
+//
+//
+//     }); //end pool connect
+//
+// }); //end of router post
 
 
-  router.put('/:id', function(req, res) {
-    console.log('req params', req.params);
-    console.log('req body', req.body);
-    var intakeid = req.params.id;
-  console.log("intake", intakeid);
-  pool.connect(function(err, client, done){
-     try {
-       if (err) {
-         console.log('Error connecting the DB', err);
-         res.sendStatus(500);
-         return;
-       }
-
-
-
-       client.query('UPDATE students SET firstname=$2, lastname=$3, dob=$4, age=$5, insurance=$6, medical=$7, appointment=$8, primarylanguage=$9 WHERE id=$1 RETURNING *',
-       [intakeid, req.body.firstname, req.body.lastname, req.body.dob, req.body.age, req.body.insurance, req.body.medical, req.body.appointment, req.body.primarylanguage],
-
-       function(err, result) {
-        if (err) {
-           console.log('Error querying database', err);
-           res.sendStatus(500);
-         } else {
-           console.log('result rows', result.rows);
-           res.send(result.rows);//!!!@@@send back to client side
-         }
-       });
-     } finally {
-       done();
-     }
-   });//end of put function
- });//end of put function
-
- router.delete('/:id', function(req, res){
-   var id = req.params.id;
- console.log("id", id);
-   pool.connect(function(err, client, done){
-     try {
-       if (err) {
-         console.log('Error connecting to DB', err);
-         res.sendStatus(500);
-         return;
-       }
-
-       client.query('DELETE FROM students WHERE id = $1', [id], function(err){
-         if (err) {
-           console.log('Error querying the DB', err);
-           res.sendStatus(500);
-           return;
-         }
-
-         res.sendStatus(204);////!!!@@@send back to AJAX success
-       });
-     } finally {
-       done();
-     }
-   });
- });//end of delete function
 
 
 //~~~~~~~~~~~

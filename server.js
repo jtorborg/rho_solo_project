@@ -11,6 +11,10 @@ const calendar = require('./routes/calendar');
 const intake = require('./routes/intake');
 const library = require('./routes/library');
 const tests = require('./routes/tests');
+const roster = require('./routes/roster');
+const caseload = require('./routes/caseload');
+
+
 
 
 const auth = require('./auth/setup');
@@ -49,6 +53,10 @@ app.use('/calendar', calendar);
 app.use('/intake', intake);
 app.use('/library', library);
 app.use('/tests', tests);
+app.use('/roster', roster);
+app.use('/caseload', caseload);
+
+
 
 
 app.get('/', function(req, res){

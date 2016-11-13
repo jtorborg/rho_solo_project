@@ -26,6 +26,12 @@ angular.module('speechApp').config(function($routeProvider, $locationProvider) {
   }).when('/tests', {
     templateUrl: 'views/tests.html',
     controller: 'TestsController as tests'
+  }).when('/roster', {
+    templateUrl: 'views/roster.html',
+    controller: 'RosterController as roster'
+  }).when('/caseload', {
+    templateUrl: 'views/caseload.html',
+    controller: 'CaseloadController as caseload'
   }).otherwise({
     redirectTo: "/login"
   });

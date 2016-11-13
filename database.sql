@@ -13,7 +13,8 @@ age integer NOT NULL,
 insurance BOOLEAN,
 medical BOOLEAN,
 appointment BOOLEAN,
-primarylanguage varchar(50)
+primarylanguage varchar(50),
+notes varchar(300)
 );
 
 CREATE TABLE tests (
@@ -38,6 +39,25 @@ concerns_id integer NOT NULL REFERENCES concerns
 CREATE TABLE students_concerns (
 students_id integer NOT NULL REFERENCES students ON DELETE CASCADE,
 concerns_id integer NOT NULL REFERENCES concerns
+);
+
+CREATE TABLE availability (
+students_id integer NOT NULL REFERENCES students ON DELETE CASCADE,
+mondaymorning boolean,
+mondayafternoon boolean,
+mondayevening boolean,
+tuesdaymorning boolean,
+tuesdayafternoon boolean,
+tuesdayevening boolean,
+wednesdaymorning boolean,
+wednesdayafternoon boolean,
+wednesdayevening boolean,
+thursdaymorning boolean,
+thursdayafternoon boolean,
+thursdayevening boolean
+fridaymorning boolean,
+fridayafternoon boolean,
+fridayevening boolean
 );
 
 INSERT INTO students
@@ -140,6 +160,8 @@ VALUES
   (26, 5),
   (27, 4)
 ;
+
+
 
 
 

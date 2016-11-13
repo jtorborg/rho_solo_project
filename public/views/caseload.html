@@ -1,0 +1,126 @@
+<div id="caseloadsubmit" data-ng-init="caseload.getStudents()">
+
+</div>
+
+<h2>Case Load</h2>
+
+
+<table class="caseloadtable">
+    <tr>
+        <th style="width:40px">
+            Date of Last Appointment
+        </th>
+        <th style="width:20px">
+            ID
+        </th>
+
+        <th style="width:40px">
+            First Name
+        </th>
+        <th style="width:40px">
+            Last Name
+        </th>
+        <th style="width:40px" ng-model="caseload.dob">
+            Date of Birth
+        </th>
+        <th style="width:10px" ng-model="caseload.age">
+            Age
+        </th>
+        <th style="width:10px">
+            Language
+        </th>
+        <!-- <th style="width:8px">
+          Area of Concern
+        </th> -->
+        <th style="width:5px">
+            Insurance Info Rec'd?
+        </th>
+        <th style="width:5px">
+            Medical Info Rec'd?
+        </th>
+        <th style="width:5px">
+            Evaluation Scheduled
+        </th>
+        <th style="width:5px">
+            Evaluation Completed
+        </th>
+        <th style="width:5px">
+            Last Plan of Care Prepared
+        </th>
+        <th style="width:20px">
+            Notes
+        </th>
+        <th style="width:10px">
+            Update
+        </th>
+        <th style="width:10px">
+            Delete
+        </th>
+    </tr>
+    <tr ng-repeat="caseloadvariable in caseload.Array track by $index" ng-show="caseloadvariable.appointmentcomplete">
+        <td>
+            <input type="date" name="info" class="form-control" placeholder="YYYY-MM-DD" ng-model="caseloadvariable.lastpoc" />
+        </td>
+        <td>
+            {{caseloadvariable.id}}
+        </td>
+        <td>
+            <input type="text" name="info" class="form-control" ng-model="caseloadvariable.firstname" />
+        </td>
+        <td>
+            <input type="text" name="info" class="form-control" placeholder="not given" ng-model="caseloadvariable.lastname" />
+        </td>
+        <td>
+            <input type="text" name="info" class="form-control" placeholder="YYYY-MM-DD" ng-model="caseloadvariable.dob" />
+            <!-- {{caseloadvariable.dob | date:'yyyy-MM-dd' }}   -->
+        </td>
+        <td>
+            <input type="text" name="info" class="form-control" placeholder="not given" ng-model="caseloadvariable.age" />
+        </td>
+        <td>
+            <input type="text" name="info" class="form-control" placeholder="not given" ng-model="caseloadvariable.primarylanguage" />
+        </td>
+
+        <td>
+            <input type="checkbox" name="info" class="form-control" name="insurance" value="insurance" ng-model="caseloadvariable.insurance" style="text-align:center;"> {{caseloadvariable.insurance?'Yes':'No'}}
+        </td>
+        <td>
+            <input type="checkbox" name="info" class="form-control" name="medical" value="medical" ng-model="caseloadvariable.medical"> {{caseloadvariable.medical?'Yes':'No'}}
+
+        </td>
+        <td>
+            <input type="checkbox" name="info" class="form-control" name="appointment" value="appointment" ng-model="caseloadvariable.appointment"> {{caseloadvariable.appointment?'Yes':'No'}}
+
+
+        </td>
+        <td>
+            <input type="checkbox" name="info" class="form-control" name="appointment" value="appointment" ng-model="caseloadvariable.appointmentcomplete"> {{caseloadvariable.appointmentcomplete?'Yes':'No'}}
+
+
+        </td>
+        <td>
+
+            <input type="date" name="info" class="form-control" placeholder="YYYY-MM-DD" ng-model="caseloadvariable.nextappt" />
+
+
+
+
+        </td>
+        <td>
+
+            <input type="text" name="info" class="form-control" name="notes" value="notes" ng-model="caseloadvariable.notes">
+
+        </td>
+        <td class="caseloadudpatebutton">
+            <button id="caseloadsubmit" class="btn btn-default" ng-click="caseload.updateStudent(caseloadvariable.id, caseloadvariable.firstname, caseloadvariable.lastname, caseloadvariable.age, caseloadvariable.dob, caseloadvariable.doc, caseloadvariable.insurance, caseloadvariable.medical, caseloadvariable.appointment, caseloadvariable.primarylanguage, caseloadvariable.notes)">Update</button>
+        </td>
+
+
+
+        <td class="caseloaddeletebutton">
+            <button id="caseloadsubmit" class="btn btn-default" ng-click="caseload.deleteStudent(caseloadvariable.id)" class="btn btn-default">Delete</button>
+        </td>
+
+    </tr>
+
+</table>

@@ -1,4 +1,4 @@
-<h1>Intake Form</h1>
+<h1>Patient Intake Form</h1>
 <div data-ng-init="intake.getStudents()">
 </div>
 
@@ -7,12 +7,12 @@
         <label for="firstname" class="control-label col-xs-offset-1 col-xs-3">First Name:</label>
         <div class="col-xs-6">
 
-            <input type="text" id="firstname" name="firstname" class="form-control" placeholder="First name" maxlength="50" ng-model="intake.firstname" /> {{intake.firstname}}
+            <input type="text" id="firstname" name="firstname" class="form-control" placeholder="First name" maxlength="50" ng-model="intake.firstname" />
         </div>
     </div>
 
     <div class="form-group row">
-        <label for="lastname" class="control-label col-xs-offset-1 col-xs-3">Last Name:</label> {{intake.lastname}}
+        <label for="lastname" class="control-label col-xs-offset-1 col-xs-3">Last Name:</label>
 
         <div class="col-xs-6">
 
@@ -21,43 +21,56 @@
     </div>
 
     <div class="form-group row">
-        <label for="age" class="control-label col-xs-offset-1 col-xs-3">Age:</label>
-        <div class="col-xs-2">
+        <label for="dob" class="control-label col-xs-offset-1 col-xs-3">Date of Birth:</label>
+        <div class="col-xs-4">
 
-            <input type="number" id="age" name="age" class="form-control" size="3" min="0" max="99" ng-model="intake.age" /> {{intake.age}}
+            <input type="date" id="dob" name="dob" class="form-control" placeholder="YYYY/MM/DD" maxlength="10" ng-model="intake.dob" style="background-color: #5cb85c" />
+            <!-- {{intake.dob | date:'yyyy-MM-dd' }} -->
+
 
         </div>
     </div>
 
     <div class="form-group row">
-        <label for="dob" class="control-label col-xs-offset-1 col-xs-3">DOB:</label>
-        <div class="col-xs-4">
+        <label for="age" class="control-label col-xs-offset-1 col-xs-3">Age:</label>
+        <div class="col-xs-2">
 
-            <input type="date" id="dob" name="dob" class="form-control" placeholder="YYYY/MM/DD" maxlength="10" ng-model="intake.dob" />
+            <input type="number" id="age" name="age" class="form-control" size="3" min="0" max="99" ng-model="intake.age" placeholder="0-99" />
 
         </div>
     </div>
+
+
+
+    <div class="form-group row">
+        <label for="dob" class="control-label col-xs-offset-1 col-xs-3">Date of Contact:</label>
+        <div class="col-xs-4">
+
+            <input type="date" id="doc" name="doc" class="form-control" placeholder="YYYY/MM/DD" maxlength="10" ng-model="intake.doc" />
+
+        </div>
+    </div>
+
 
     <div class="form-group row">
         <label for="primarylanguage" class="control-label col-xs-offset-1 col-xs-3" ng-model="intake.primarylanguage">Primary Language:</label>
         <div class="col-xs-4">
 
             <select class="form-control" name="primarylanguage" style="width: auto;" ng-model="intake.primarylanguage">
-      {{intake.primarylanguage}}
 
     <option value="" selected="selected" >Select a language:</option>
     <option value="English">English</option>
     <option value="Spanish">Spanish</option>
-{{intake.primarylanguage}}
   </select>
         </div>
     </div>
 
 
-    <div class="form-group">
-        <label for="insurance" class="control-label col-xs-offset-1 col-xs-3">Area of Concern</label>
+    <div class="form-group row">
+        <label for="insurance" class="control-label col-xs-4">Area of Concern:</label>
+        <div class="col-xs-4">
 
-        <select class="form-control" name="concern" style="width: auto;" ng-model="intake.concerns_id">
+            <select class="form-control" name="concern" style="width: auto;" ng-model="intake.concerns_id">
 
         <option value="" selected="selected" >Select a concern</option>
         <option value="1">Language</option>
@@ -71,20 +84,19 @@
         <option value="5">Voice</option>
 
 
-      </select>{{intake.concerns_id}}
+      </select>
+        </div>
 
     </div>
+
+
     </div>
-
-
-
-
 
     <div class="form-group">
         <label for="insurance" class="control-label col-xs-offset-1 col-xs-3">Insurance Info Received?</label>
         <div class="col-xs-8">
 
-            <input type="checkbox" name="insurance" value="insurance" ng-model="intake.insurance">  {{intake.insurance?'yes':'no'}}
+            <input type="checkbox" name="insurance" value="insurance" ng-model="intake.insurance"> {{intake.insurance?'Yes':'No'}}
 
 
         </div>
@@ -94,103 +106,131 @@
         <label for="medical" class="control-label col-xs-offset-1 col-xs-3">Medical Provider Report Received?</label>
         <div class="col-xs-8">
 
-            <input type="checkbox" name="medical" value="medical" ng-model="intake.medical"> {{intake.medical?'yes':'no'}}
+            <input type="checkbox" name="medical" value="medical" ng-model="intake.medical"> {{intake.medical?'Yes':'No'}}
 
         </div>
 
     </div>
 
     <div class="form-group">
-        <label for="appt" class="control-label col-xs-offset-1 col-xs-3">Appointment Scheduled?</label>
+        <label for="appt" class="control-label col-xs-offset-1 col-xs-3">Evaluation Scheduled?</label>
         <div class="col-xs-8">
 
-            <input type="checkbox" name="appt" value="appt" ng-model="intake.appointment"> {{intake.appointment?'yes':'no'}}
+            <input type="checkbox" name="appt" value="appt" ng-model="intake.appointment"> {{intake.appointment?'Yes':'No'}}
         </div>
 
     </div>
-    <div class="col-xs-offset-3 col-xs-10">
 
-        <button id="intakesubmit" class="btn btn-default  col-xs-offset-1 " ng-click="intake.postStudent(intake.firstname, intake.lastname, intake.age, intake.dob, intake.insurance, intake.medical, intake.appointment, intake.primarylanguage, intake.concerns_id)">Submit</button>
+    <div class="form-group">
+        <label for="appt" class="control-label col-xs-offset-1 col-xs-3">Evaluation Complete?</label>
+        <div class="col-xs-8">
 
-        <!-- <button id="librarysubmit" class="btn btn-default  col-xs-offset-1 " ng-click="library.getLibrary()">Submit</button> -->
-
-        <button id="intakesubmit" class="btn btn-default  col-xs-offset-1 " ng-click="intake.getStudents()">Get Students</button>
+            <input type="checkbox" name="apptcomplete" value="apptcomplete" ng-model="intake.appointmentcomplete"> {{intake.appointmentcomplete?'Yes':'No'}}
+        </div>
 
     </div>
 
+    <div class="form-group">
+        <label for="datestimes" id="datestimes" class="control-label col-xs-offset-1 col-xs-10">Dates/Times Available</label>
+    </div>
+
+
+        <div class="col-xs-12">
+            <label for="appt" id="timeslot" class="control-label col-xs-4">Mondays 8am-12pm</label>
+            <input type="checkbox" name="mondaymorning" value="mondaymorning" ng-model="intake.mondaymorning">
+          </div>
+
+          <div class="col-xs-12">
+              <label for="appt" id="timeslot" class="control-label col-xs-4">Mondays 12pm-4pm</label>
+              <input type="checkbox" name="mondayafternoon" value="mondayafternoon" ng-model="intake.mondayafternoon">
+            </div>
+
+            <div class="col-xs-12">
+                <label for="appt" id="timeslot" class="control-label col-xs-4">Mondays 4pm-6pm</label>
+                <input type="checkbox" name="mondayevening" value="mondayevening" ng-model="intake.mondayevening">
+              </div>
+
+              <div class="col-xs-12">
+                  <label for="appt" id="timeslot" class="control-label col-xs-4">Tuesdays 8am-12pm</label>
+                  <input type="checkbox" name="tuesdaymorning" value="tuesdaymorning" ng-model="intake.tuesdaymorning">
+                </div>
+
+                <div class="col-xs-12">
+                    <label for="appt" id="timeslot" class="control-label col-xs-4">Tuesdays 12pm-4pm</label>
+                    <input type="checkbox" name="tuesdayafternoon" value="tuesdayafternoon" ng-model="intake.tuesdayafternoon">
+                  </div>
+
+                  <div class="col-xs-12">
+                      <label for="appt" id="timeslot" class="control-label col-xs-4">Tuesdays 4pm-6pm</label>
+                      <input type="checkbox" name="tuesdayevening" value="tuesdayevening" ng-model="intake.tuesdayevening">
+                    </div>
+
+                    <div class="col-xs-12">
+                        <label for="appt" id="timeslot" class="control-label col-xs-4">Wednesdays 8am-12pm</label>
+                        <input type="checkbox" name="wednesdaymorning" value="wednesdaymorning" ng-model="intake.wednesdaymorning">
+                      </div>
+
+                      <div class="col-xs-12">
+                          <label for="appt" id="timeslot" class="control-label col-xs-4">Wednesdays 12pm-4pm </label>
+                          <input type="checkbox" name="wednesdayafternoon" value="wednesdayafternoon" ng-model="intake.wednesdayafternoon">
+                        </div>
+
+                        <div class="col-xs-12">
+                            <label for="appt" id="timeslot" class="control-label col-xs-4">Wednesdays 4pm-6pm</label>
+                            <input type="checkbox" name="wednesdayevening" value="wednesdayevening" ng-model="intake.wednesdayevening">
+                          </div>
+
+                          <div class="col-xs-12">
+                              <label for="appt" id="timeslot" class="control-label col-xs-4">Thursdays 8am-12pm</label>
+                              <input type="checkbox" name="thursdaymorning" value="thursdaymorning" ng-model="intake.thursdaymorning">
+                            </div>
+
+                            <div class="col-xs-12">
+                                <label for="appt" id="timeslot" class="control-label col-xs-4">Thursdays 12pm-4pm</label>
+                                <input type="checkbox" name="thursdayafternoon" value="thursdayafternoon" ng-model="intake.thursdayafternoon">
+                              </div>
+
+                              <div class="col-xs-12">
+                                  <label for="appt" id="timeslot" class="control-label col-xs-4">Thursdays 4pm-6pm</label>
+                                  <input type="checkbox" name="thursdayevening" value="thursdayevening" ng-model="intake.thursdayevening">
+                                </div>
+
+                                <div class="col-xs-12">
+                                    <label for="appt" id="timeslot" class="control-label col-xs-4">Fridays 8am-12pm</label>
+                                    <input type="checkbox" name="fridaymorning" value="fridaymorning" ng-model="intake.fridaymorning">
+                                  </div>
+
+                                  <div class="col-xs-12">
+                                      <label for="appt" id="timeslot" class="control-label col-xs-4">Fridays 12pm-4pm</label>
+                                      <input type="checkbox" name="fridayafternoon" value="fridayafternoon" ng-model="intake.fridayafternoon">
+                                    </div>
+
+                                    <div class="col-xs-12">
+                                        <label for="appt" id="timeslot" class="control-label col-xs-4">Fridays 4pm-6pm</label>
+                                        <input type="checkbox" name="fridayevening" value="fridayevening" ng-model="intake.fridayevening">
+                                      </div>
+            <!-- <label for="appt" class="control-label col-xs-3">Mondays 12pm-4pm</label>
+            <input type="checkbox" name="mondayafternoon" value="mondayafternoon" ng-model="intake.mondayafternoon">
+          </div>
+<div>
+
+            <label for="appt" class="control-label col-xs-3">Mondays 4pm-6pm</label>
+            <input type="checkbox" name="mondayevening" value="mondayevening" ng-model="intake.mondayevening">
+        </div>
+    </div> -->
+
+
+    <div class="form-group">
+        <label for="intake.notes" class="control-label col-xs-offset-2 col-xs-2">Notes:</label>
+
+        <textarea type="text" name="info" class="form-control" rows="5" ng-model="intake.notes" /></textarea>
+    </div>
+    <div>
+
+        <button id="intakesubmit" class="btn btn-default pull-right  col-xs-offset-1" ng-click="intake.postStudent(intake.firstname, intake.lastname, intake.age, intake.dob, intake.doc, intake.insurance, intake.medical, intake.appointment, intake.appointmentcomplete, intake.primarylanguage, intake.concerns_id, intake.notes, intake.mondaymorning, intake.mondayafternoon, intake.mondayevening, intake.tuesdaymorning, intake.tuesdayafternoon, intake.tuesdayevening, intake.wednesdaymorning, intake.wednesdayafternoon, intake.wednesdayevening, intake.thursdaymorning, intake.thursdayafternoon, intake.thursdayevening, intake.fridaymorning, intake.fridayafternoon, intake.fridayevening)">Submit</button>
+    </div>
+
+
+    <!-- <button id="librarysubmit" class="btn btn-default  col-xs-offset-1 " ng-click="library.getLibrary()">Submit</button> -->
 </form>
-<table class = "intaketable">
-    <tr>
-        <th style="width:20px">
-            ID
-        </th>
-        <th style="width:20px">
-            First Name
-        </th>
-        <th style="width:20px">
-            Last Name
-        </th>
-        <th style="width:10px">
-            Date of Birth
-        </th>
-        <th style="width:5px">
-            Age
-        </th>
-        <th style="width:8px">
-            Language
-        </th>
-        <th style="width:5px">
-            Insurance
-        </th>
-        <th style="width:5px">
-            Medical
-        </th>
-        <th style="width:5px">
-            Appointment
-        </th>
-        <th style="width:10px">
-            Update
-        </th>
-        <th style="width:10px">
-            Delete
-        </th>
-    </tr>
-    <tr ng-repeat="intakevariable in intake.Array track by $index">
-        <td>
-            {{intakevariable.id}}
-        </td>
-        <td>
-            <input type="text" id="info" name="info" class="form-control" ng-model="intakevariable.firstname" />
-        </td>
-        <td>
-            <input type="text" id="info" name="info" class="form-control" placeholder="not given" ng-model="intakevariable.lastname" />
-        </td>
-        <td>
-            <input type="text" id="info" name="info" class="form-control" placeholder="YYYY-MM-DD" ng-model="intakevariable.dob" />
-        </td>
-        <td>
-            <input type="text" id="info" name="info" class="form-control" placeholder="not given" ng-model="intakevariable.age" />
-        </td>
-        <td>
-            <input type="text" id="info" name="info" class="form-control" placeholder="not given" ng-model="intakevariable.primarylanguage" />
-        </td>
-        <td>
-          <input type="checkbox" id="info" name="info" class="form-control" name="insurance" value="insurance" ng-model="intakevariable.insurance">  {{intakevariable.insurance?'yes':'no'}}
-        </td>
-        <td>
-          <input type="checkbox" id="info" name="info" class="form-control" name="medical" value="medical" ng-model="intakevariable.medical">  {{intakevariable.medical?'yes':'no'}}
-
-        </td>
-        <td>
-
-            <input type="checkbox" id="info" name="info" class="form-control" name="appointment" value="appointment" ng-model="intakevariable.appointment">  {{intakevariable.appointment?'yes':'no'}}
-
-</td>
-        <td class="intakeudpatebutton">
-            <button id="intakesubmit" class="btn btn-default" ng-click="intake.updateStudent(intakevariable.id, intakevariable.firstname, intakevariable.lastname, intakevariable.age, intakevariable.dob, intakevariable.insurance, intakevariable.medical, intakevariable.appointment, intakevariable.primarylanguage, intakevariable.concerns_id)">Update</button>
-        </td>
-        <td class="intakedeletebutton">
-            <button id="intakesubmit" class="btn btn-default" ng-click="intake.deleteStudent(intakevariable.id)" class="btn btn-default">Delete</button>
-        </td>
-    </tr>
-</table>
+<button id="agecalc" class="btn btn-success" ng-click="intake.calcAge(intake.dob)">Calculate Age as of Today</button> {{intake.agetoday}}
