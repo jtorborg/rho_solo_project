@@ -27,7 +27,7 @@ router.get('/', function(req, res) {
             return;
 
         } //end of if statement
-        client.query('SELECT * FROM students LEFT JOIN students_concerns ON students.id = students_concerns.students_id LEFT JOIN availability ON students.id = availability.students_id ORDER BY doc;', function(err, result) {
+        client.query('SELECT * FROM students LEFT JOIN students_concerns ON students.id = students_concerns.students_id LEFT JOIN availability ON students.id = availability.students_id ORDER BY doc DESC;', function(err, result) {
             done();
             if (err) {
                 console.log('err', err);

@@ -1,14 +1,14 @@
-<div id="rostersubmit"  data-ng-init="roster.getStudents()">
+<div id="rostersubmit" data-ng-init="roster.getStudents()">
 
 </div>
 
 <h2>Waiting List</h2>
 
-<table class = "rostertable">
+<table class="rostertable">
     <tr>
-      <th style="width:40px">
-          Date of Contact
-      </th>
+        <th style="width:50px">
+            Date of Contact
+        </th>
         <th style="width:20px">
             ID
         </th>
@@ -22,7 +22,7 @@
         <th style="width:40px" ng-model="roster.dob">
             Date of Birth
         </th>
-        <th style="width:10px" ng-model = "roster.age">
+        <th style="width:5px" ng-model="roster.age">
             Age
         </th>
         <th style="width:10px">
@@ -43,8 +43,10 @@
         <th style="width:5px">
             Evaluation Completed
         </th>
-        <th style="width:5px">
-Dates/Times Available        </th>
+        <th style="width:4px">
+            Available </th>
+        <th style="width:4px">
+            Phone </th>
         <th style="width:20px">
             Notes
         </th>
@@ -54,16 +56,16 @@ Dates/Times Available        </th>
         <th style="width:10px">
             Delete
         </th>
-        <th style="width:10px">
+        <!-- <th style="width:10px">
             Remove From Waitlist
-        </th>
+        </th> -->
     </tr>
-    <tr ng-repeat="rostervariable in roster.Array track by $index" >
-      <td>
-          <input type="text" name="info" class="form-control" placeholder="YYYY-MM-DD" ng-model="rostervariable.doc" />
-      </td>
+    <tr ng-repeat="rostervariable in roster.Array track by $index">
         <td>
-        <span ng-model='rostervariable.id'>   {{rostervariable.id}} </span>
+            <input type="text" name="info" class="form-control" placeholder="YYYY-MM-DD" ng-model="rostervariable.doc" />
+        </td>
+        <td>
+            <span ng-model='rostervariable.id'>   {{rostervariable.id}} </span>
         </td>
         <td>
             <input type="text" name="info" class="form-control" ng-model="rostervariable.firstname" />
@@ -72,8 +74,8 @@ Dates/Times Available        </th>
             <input type="text" name="info" class="form-control" placeholder="not given" ng-model="rostervariable.lastname" />
         </td>
         <td>
-            <input type="text" name="info" class="form-control" placeholder="YYYY-MM-DD" ng-model="rostervariable.dob"   />
-<!-- {{rostervariable.dob | date:'yyyy-MM-dd' }}   -->
+            <input type="text" name="info" class="form-control" placeholder="YYYY-MM-DD" ng-model="rostervariable.dob" />
+            <!-- {{rostervariable.dob | date:'yyyy-MM-dd' }}   -->
         </td>
         <td>
             <input type="text" name="info" class="form-control" placeholder="not given" ng-model="rostervariable.age" />
@@ -83,66 +85,37 @@ Dates/Times Available        </th>
         </td>
 
         <td>
-          <input type="checkbox" name="info" class="form-control" name="insurance" value="insurance" ng-model="rostervariable.insurance" style="text-align:center;">  {{rostervariable.insurance?'Yes':'No'}}
+            <input type="checkbox" name="info" class="form-control" name="insurance" value="insurance" ng-model="rostervariable.insurance" style="text-align:center;"> {{rostervariable.insurance?'Yes':'No'}}
         </td>
         <td>
-          <input type="checkbox" name="info" class="form-control" name="medical" value="medical" ng-model="rostervariable.medical">  {{rostervariable.medical?'Yes':'No'}}
+            <input type="checkbox" name="info" class="form-control" name="medical" value="medical" ng-model="rostervariable.medical"> {{rostervariable.medical?'Yes':'No'}}
 
         </td>
         <td>
-          <input type="checkbox" name="info" class="form-control" name="appointment" value="appointment" ng-model="rostervariable.appointment">  {{rostervariable.appointment?'Yes':'No'}}
+            <input type="checkbox" name="info" class="form-control" name="appointment" value="appointment" ng-model="rostervariable.appointment"> {{rostervariable.appointment?'Yes':'No'}}
 
 
+        </td>
+        <td>
+            <input type="checkbox" name="info" class="form-control" name="appointment" value="appointment" ng-model="rostervariable.appointmentcomplete"> {{rostervariable.appointmentcomplete?'Yes':'No'}}
+
+
+        </td>
+        <td>
+            {{rostervariable.mondaymorning?'M 8-12':''}} {{rostervariable.mondayafternoon?'M 12-4':''}} {{rostervariable.mondayevening?'M 4-6':''}} {{rostervariable.tuesdaymorning? 'T 8-12':''}} {{rostervariable.tuesdayafternoon? 'T 12-4':''}} {{rostervariable.tuesdayevening?
+            'T 4-6':''}} {{rostervariable.wednesdaymorning? 'W 8-12':''}} {{rostervariable.wednesdayafternoon? 'W 12-4':''}} {{rostervariable.wednesdayevening? 'W 4-6':''}} {{rostervariable.thursdaymorning? 'Th 8-12':''}} {{rostervariable.thursdayafternoon?
+            'Th 12-4':''}} {{rostervariable.thursdayevening? 'Th 4-6':''}} {{rostervariable.fridaymorning? 'F 8-12':''}} {{rostervariable.fridayafternoon? 'F 12-4':''}} {{rostervariable.fridayevening? 'F 4-6':''}}
+        </td>
+        <td>
+
+
+        <input type="text" name="info" class="form-control" ng-model="rostervariable.telephone" />
 </td>
-<td>
-  <input type="checkbox" name="info" class="form-control" name="appointment" value="appointment" ng-model="rostervariable.appointmentcomplete">  {{rostervariable.appointmentcomplete?'Yes':'No'}}
+        <td>
 
+            <input type="text" name="info" class="form-control" name="notes" value="notes" ng-model="rostervariable.notes"> 
 
-</td>
-<td>
-  {{rostervariable.mondaymorning?'M 8-12':''}}
-  {{rostervariable.mondayafternoon?'M 12-4':''}}
-
-  {{rostervariable.mondayevening?'M 4-6':''}}
-  {{rostervariable.tuesdaymorning? 'T 8-12':''}}
-  {{rostervariable.tuesdayafternoon? 'T 12-4':''}}
-
-{{rostervariable.tuesdayevening? 'T 4-6':''}}
-{{rostervariable.wednesdaymorning? 'W 8-12':''}}
-{{rostervariable.wednesdayafternoon? 'W 12-4':''}}
-
-   {{rostervariable.wednesdayevening? 'W 4-6':''}}
-
-   {{rostervariable.thursdaymorning? 'T 8-12':''}}
-   {{rostervariable.thursdayafternoon? 'T 12-4':''}}
-
-      {{rostervariable.thursdayevening? 'T 4-6':''}}
-
-
-    {{rostervariable.fridaymorning? 'F 8-12':''}}
-    {{rostervariable.fridayafternoon? 'F 12-4':''}}
-
-       {{rostervariable.fridayevening? 'F 4-6':''}}
-
-
-
-</span>
-<span ng-model="rostervariable.fridayevening">        {{rostervariable.fridayevening}}
-
-
-
-
-</span>
-
-
-
-
-</td>
-<td>
-
-    <input type="text" name="info" class="form-control" name="notes" value="notes" ng-model="rostervariable.notes">
-
-</td>
+        </td>
         <td class="rosterudpatebutton">
             <button id="rostersubmit" class="btn btn-default" ng-click="roster.updateStudent(rostervariable.id, rostervariable.firstname, rostervariable.lastname, rostervariable.age, rostervariable.dob, rostervariable.doc, rostervariable.insurance, rostervariable.medical, rostervariable.appointment, rostervariable.appointmentcomplete, rostervariable.primarylanguage, rostervariable.notes, rostervariable.nowait)">Update</button>
         </td>
@@ -153,9 +126,9 @@ Dates/Times Available        </th>
             <button id="rostersubmit" class="btn btn-default" ng-click="roster.deleteStudent(rostervariable.id)" class="btn btn-default">Delete</button>
         </td>
 
-        <td class="rosternowait">
+        <!-- <td class="rosternowait">
           <input type="checkbox" name="info" class="form-control" name="appointment" value="appointment" ng-model="rostervariable.nowait"  /> {{rostervariable.nowait?'Yes':'No'}}
 
-        </td>
+        </td> -->
     </tr>
 </table>

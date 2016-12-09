@@ -12,7 +12,7 @@ function IntakeController(intakeService, $filter) {
     // console.log(intake.agetoday);
 
 
-    this.postStudent = function(firstname, lastname, age, dob, doc, insurance, medical, appointment, appointmentcomplete, primarylanguage, concerns_id, notes, mondaymorning, mondayafternoon, mondayevening, tuesdaymorning, tuesdayafternoon, tuesdayevening, wednesdaymorning, wednesdayafternoon, wednesdayevening, thursdaymorning, thursdayafternoon, thursdayevening, fridaymorning, fridayafternoon, fridayevening) {
+    this.postStudent = function(firstname, lastname, age, dob, doc, insurance, medical, appointment, appointmentcomplete, primarylanguage, concerns_id, notes, mondaymorning, mondayafternoon, mondayevening, tuesdaymorning, tuesdayafternoon, tuesdayevening, wednesdaymorning, wednesdayafternoon, wednesdayevening, thursdaymorning, thursdayafternoon, thursdayevening, fridaymorning, fridayafternoon, fridayevening, telephone) {
         console.log('inside postStudent');
         intake.dob = new Date;
         intake.studentdata = {
@@ -43,7 +43,8 @@ function IntakeController(intakeService, $filter) {
             thursdayevening: thursdayevening,
             fridaymorning: fridaymorning,
             fridayafternoon: fridayafternoon,
-            fridayevening: fridayevening
+            fridayevening: fridayevening,
+            telephone: telephone
         };
         console.log(intake.studentdata);
         intakeService.postStudent(intake.studentdata).then(function(response) {

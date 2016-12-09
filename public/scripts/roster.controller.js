@@ -17,7 +17,7 @@ function RosterController(rosterService) {
         });
     }; //end of getStudents
 
-    this.updateStudent = function(id, firstname, lastname, age, dob, doc, insurance, medical, appointment, appointmentcomplete, primarylanguage, concerns_id, notes, nowait) {
+    this.updateStudent = function(id, firstname, lastname, age, dob, doc, insurance, medical, appointment, appointmentcomplete, primarylanguage, notes, nowait) {
 
 console.log('inside update student');
 console.log("id", id);
@@ -36,7 +36,6 @@ console.log("id", id);
            appointment: appointment,
            appointmentcomplete: appointmentcomplete,
            primarylanguage: primarylanguage,
-           concerns_id: concerns_id,
            notes: notes,
            nowait: nowait
 

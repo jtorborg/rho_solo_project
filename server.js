@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -17,9 +19,11 @@ const caseload = require('./routes/caseload');
 
 
 
+
 const auth = require('./auth/setup');
 const passport = require('passport');
 const session = require('express-session');
+
 
 auth.setup();
 
@@ -82,6 +86,10 @@ function ensureAuthenticated(req, res, next) {
   }
 }
 
-var server = app.listen(3000, function() {
-  console.log('Listening on port', server.address().port);
+
+
+// server connection
+const port = process.env.PORT || 3000;
+const server = app.listen(port, function () {
+  console.log('Listening on port', port);
 });
