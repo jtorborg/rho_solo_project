@@ -2,8 +2,8 @@
   "name": "torborg-solo",
   "version": "1.0.0",
   "engines": {
-  "node": "6.3.1"
-},
+    "node": "6.3.1"
+  },
   "description": "",
   "main": "server.js",
   "scripts": {
@@ -17,6 +17,7 @@
     "angular-bootstrap": "^0.12.2",
     "angular-moment": "^1.0.0",
     "angular-route": "^1.5.8",
+    "auth": "0.0.9",
     "bcrypt": "^0.8.7",
     "body-parser": "^1.15.2",
     "bootstrap": "^3.3.7",

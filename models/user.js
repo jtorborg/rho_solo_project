@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 const SALT_ROUNDS = 10;
 const pool = require('../db/connection');
-const auth = require('../db/auth.js');
+const auth = require('../db/auth');
 
 
 
